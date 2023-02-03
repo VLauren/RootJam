@@ -13,7 +13,12 @@ public class RJChar : MonoBehaviour
 
     void Update()
     {
-        CharacterController.Move(transform.right * Time.deltaTime * 8 * Input.GetAxisRaw("Horizontal"));
-        transform.rotation = Quaternion.Euler(0, 0, -(Mathf.Atan2(transform.position.x, transform.position.y) * Mathf.Rad2Deg));
+        // Muevo el personaje
+        Vector3 horizontalMovement = transform.right * Time.deltaTime * 8 * Input.GetAxisRaw("Horizontal");
+        Vector3 verticalMovement = transform.forward * Time.deltaTime * 8 * Input.GetAxisRaw("Vertical");
+        CharacterController.Move(horizontalMovement + verticalMovement);
+
+        // Cambio la rotación del personaje
+        transform.rotation = Quaternion.Euler(Mathf.Atan2(transform.position.z, transform.position.y) * Mathf.Rad2Deg, 0, -(Mathf.Atan2(transform.position.x, transform.position.y) * Mathf.Rad2Deg));
     }
 }
