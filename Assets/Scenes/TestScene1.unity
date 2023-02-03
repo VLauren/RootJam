@@ -322,6 +322,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40323002e2891364ba9553e463e30c12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Offset: {x: 0, y: 0, z: -20}
+  Angle: 40
 --- !u!1001 &5933744295801456348
 PrefabInstance:
   m_ObjectHideFlags: 0

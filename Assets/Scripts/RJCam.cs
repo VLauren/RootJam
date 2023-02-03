@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class RJCam : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Vector3 Offset;
+    public float Angle;
+
+    Transform Target;
+
     void Start()
     {
-        
+        Target = FindObjectOfType<RJChar>().transform;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        transform.rotation = Target.rotation * Quaternion.Euler(Angle, 0, 0);
+
+        transform.position = Target.position + transform.right * Offset.x + transform.up * Offset.y + transform.forward * Offset.z;
     }
 }
