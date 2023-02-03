@@ -6,13 +6,24 @@ public class RJChar : MonoBehaviour
 {
     CharacterController CharacterController;
 
-    public int velocity = 8;
+    public int hVelocity = 8;
+    public int vVelocity = 8;
     public float minZMovement = -5;
     public float maxZMovement = 5;
+
+    float distToCenter;
+
+    Vector3 AnglePos;
 
     void Start()
     {
         CharacterController = GetComponent<CharacterController>();
+
+        distToCenter = transform.position.magnitude;
+
+        AnglePos = transform.rotation.eulerAngles;
+
+        CharacterController.enabled = false;
     }
 
     void Update()
@@ -24,25 +35,19 @@ public class RJChar : MonoBehaviour
         // - cuando lo puslo otra vez, me puedo volver a mover
     }
 
+    public Transform Dummy;
+
     void Movement()
     {
-        // Muevo el personaje
-        Vector3 horizontalMovement = transform.right * Time.deltaTime * velocity * Input.GetAxisRaw("Horizontal");
-        Vector3 verticalMovement = transform.forward * Time.deltaTime * velocity * Input.GetAxisRaw("Vertical");
-        CharacterController.Move(horizontalMovement + verticalMovement);
+        // Magia, no pregunteis
+        Dummy.transform.parent.rotation = Quaternion.Euler(
+            Mathf.Clamp(Dummy.transform.parent.rotation.eulerAngles.x - Time.deltaTime * vVelocity * Input.GetAxisRaw("Vertical"), 290, 304),
+            Dummy.transform.parent.rotation.eulerAngles.y - Time.deltaTime * hVelocity * Input.GetAxisRaw("Horizontal"),
+            Dummy.transform.parent.rotation.eulerAngles.z);
 
-        // Cambio la rotaci�n del personaje
-        transform.rotation = Quaternion.Euler(Mathf.Atan2(transform.position.z, transform.position.y) * Mathf.Rad2Deg, 0, -(Mathf.Atan2(transform.position.x, transform.position.y) * Mathf.Rad2Deg));
+        Debug.Log(Dummy.transform.parent.rotation.eulerAngles);
 
-        if (transform.position.z <= minZMovement)
-        {
-            transform.position = new Vector3(transform.position.x, transform.position.y, -5);
-        }
-
-        if (transform.position.z >= maxZMovement)
-        {
-            transform.position = new Vector3(transform.position.x, transform.position.y, 5);
-        }
-
+        transform.position = Dummy.transform.position;
+        transform.rotation = Dummy.transform.rotation;
     }
 }
