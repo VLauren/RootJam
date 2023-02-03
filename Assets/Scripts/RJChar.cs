@@ -51,8 +51,6 @@ public class RJChar : MonoBehaviour
             Dummy.transform.parent.rotation.eulerAngles.y - Time.deltaTime * hVelocity * Input.GetAxisRaw("Horizontal"),
             Dummy.transform.parent.rotation.eulerAngles.z);
 
-        Debug.Log(Dummy.transform.parent.rotation.eulerAngles);
-
         transform.position = Dummy.transform.position;
         transform.rotation = Dummy.transform.rotation;
     }
