@@ -10,6 +10,8 @@ public class RJChar : MonoBehaviour
     public float minZMovement = -5;
     public float maxZMovement = 5;
 
+    public bool canMove = true;
+
     void Start()
     {
         CharacterController = GetComponent<CharacterController>();
@@ -17,11 +19,16 @@ public class RJChar : MonoBehaviour
 
     void Update()
     {
-        Movement();
+        if (canMove)
+        {
+            Movement();
+        }
 
-        // - puslo un boton (GetButton Fire?)
-        // - cuando lo pulso, no me puedo mover
-        // - cuando lo puslo otra vez, me puedo volver a mover
+        if (Input.GetButtonDown("Fire1"))
+        {
+            //una vez se pulsa el boton se para el movimiento y lo pone como lo contrario a lo que esté
+            canMove = !canMove;
+        }
     }
 
     void Movement()
@@ -36,12 +43,12 @@ public class RJChar : MonoBehaviour
 
         if (transform.position.z <= minZMovement)
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y, -5);
+            transform.position = new Vector3(transform.position.x, transform.position.y, minZMovement);
         }
 
         if (transform.position.z >= maxZMovement)
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y, 5);
+            transform.position = new Vector3(transform.position.x, transform.position.y, maxZMovement);
         }
 
     }
