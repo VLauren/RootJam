@@ -6,11 +6,9 @@ public class RJChar : MonoBehaviour
 {
     CharacterController CharacterController;
 
-    int velocity = 8;
-
-    float minZMovement = -5;
-
-    float maxZMovement = 5;
+    public int velocity = 8;
+    public float minZMovement = -5;
+    public float maxZMovement = 5;
 
     void Start()
     {
@@ -18,6 +16,15 @@ public class RJChar : MonoBehaviour
     }
 
     void Update()
+    {
+        Movement();
+
+        // - puslo un boton (GetButton Fire?)
+        // - cuando lo pulso, no me puedo mover
+        // - cuando lo puslo otra vez, me puedo volver a mover
+    }
+
+    void Movement()
     {
         // Muevo el personaje
         Vector3 horizontalMovement = transform.right * Time.deltaTime * velocity * Input.GetAxisRaw("Horizontal");
@@ -36,5 +43,6 @@ public class RJChar : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, 5);
         }
+
     }
 }
