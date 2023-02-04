@@ -195,5 +195,4 @@ public class RJChar : MonoBehaviour
 
         Attack1Area.gameObject.SetActive(true);
     }
-
 }
