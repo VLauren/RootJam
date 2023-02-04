@@ -7,17 +7,76 @@ public class RJGoblin : MonoBehaviour
     public int HVelocity = 8;
     public int VVelocity = 8;
 
+    public float TargetDistance;
+
+    [Space()]
+    public float FireRate;
+    public GameObject Projectile;
+
+    protected Animator Anim;
+
+    Quaternion TargetRotation;
+
+    void Start()
+    {
+        StartCoroutine(Shooting()); // Anyways I started blasting
+
+        Anim = transform.Find("Model").GetComponent<Animator>();
+    }
+
     void Update()
     {
+        if (RJChar.Instance == null)
+            return;
+
         Vector3 dir = transform.InverseTransformPoint(RJChar.Instance.transform.position);
         dir.y = 0;
         dir.Normalize();
 
         // Movimiento
-        RJUtil.SphereMove(transform, new Vector3(
-        Time.deltaTime * VVelocity * dir.z,
-        - Time.deltaTime * HVelocity * dir.x,
-        0));
-        
+        bool movZero = false;
+        if (Vector3.Distance(transform.position, RJChar.Instance.transform.position) > TargetDistance)
+            RJUtil.SphereMove(transform, new Vector3(Time.deltaTime * VVelocity * dir.z, -Time.deltaTime * HVelocity * dir.x, 0));
+        else
+            movZero = true; // movimiento zero
+
+        // Rotation
+        // if (!movZero)
+        {
+            TargetRotation = Quaternion.LookRotation(-dir, Vector3.up);
+            transform.Find("Model").localRotation = Quaternion.RotateTowards(transform.Find("Model").localRotation, TargetRotation, Time.deltaTime * 360);
+        }
+
+        if (Anim != null)
+        {
+            // TODO animacion de mov
+        }
+    }
+
+    IEnumerator Shooting()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds((0.9f + Random.value * 0.2f) / FireRate);
+            StartCoroutine(Shoot());
+        }
+    }
+
+    IEnumerator Shoot()
+    {
+        // Anim.SetTrigger("Attack");
+        // print("pium");
+
+        yield return new WaitForSeconds(0.3f);
+
+        if (Projectile != null)
+            Instantiate(Projectile, transform.Find("ProjectileSpawnPoint").position, Quaternion.identity);
+    }
+
+    // TODO daño y muerte
+
+    public void ApplyDamage(int damage)
+    {
+        Destroy(gameObject);
     }
 }

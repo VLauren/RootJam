@@ -37,14 +37,25 @@ public static class RJUtil
         MovementDummy.Instance.transform.rotation = transformToMove.rotation;
 
         MovementDummy.Instance.transform.parent.rotation = Quaternion.Euler(
-            // Mathf.Clamp(
+                // Mathf.Clamp(
                 MovementDummy.Instance.transform.parent.rotation.eulerAngles.x - movement.x,
-                // 290, 304),
+            // 290, 304),
             MovementDummy.Instance.transform.parent.rotation.eulerAngles.y - movement.y,
             MovementDummy.Instance.transform.parent.rotation.eulerAngles.z);
 
         movementDelta = MovementDummy.Instance.transform.position - transformToMove.position;
         // rotationDelta = transformToMove.rotation * Quaternion.Inverse(MovementDummy.Instance.transform.rotation);
         targetRotation = MovementDummy.Instance.transform.rotation;
+    }
+
+    public static Quaternion SmoothDampQuaternion(Quaternion current, Quaternion target, ref Vector3 currentVelocity, float smoothTime)
+    {
+        Vector3 c = current.eulerAngles;
+        Vector3 t = target.eulerAngles;
+        return Quaternion.Euler(
+          Mathf.SmoothDampAngle(c.x, t.x, ref currentVelocity.x, smoothTime),
+          Mathf.SmoothDampAngle(c.y, t.y, ref currentVelocity.y, smoothTime),
+          Mathf.SmoothDampAngle(c.z, t.z, ref currentVelocity.z, smoothTime)
+        );
     }
 }
