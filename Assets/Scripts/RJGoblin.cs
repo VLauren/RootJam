@@ -73,6 +73,9 @@ public class RJGoblin : MonoBehaviour
 
         if (Projectile != null)
             Instantiate(Projectile, transform.Find("ProjectileSpawnPoint").position, Quaternion.identity);
+
+        RJAudio.AudioSource.SetIntVar("sfxvar", 4);
+        RJAudio.AudioSource.Play("sfx");
     }
 
     // TODO da�o y muerte

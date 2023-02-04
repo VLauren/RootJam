@@ -26,6 +26,9 @@ public class RJPlanet : MonoBehaviour
         SpawnPlanetElements();
 
         InvokeRepeating("SpawnGoblin", 3, 1f / GoblinSpawnRate);
+
+        RJAudio.AudioSource.SetIntVar("musicvar", 0);
+        RJAudio.AudioSource.Play("musica");
     }
 
     public int DebugGoblinsToSpawn;
@@ -42,7 +45,7 @@ public class RJPlanet : MonoBehaviour
     {
         return; // Ya veremos
 
-        if(transparent)
+        if (transparent)
             Instance.GetComponent<Renderer>().material = Instance.TransparentMaterial;
         else
             Instance.GetComponent<Renderer>().material = Instance.StartMaterial;
