@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 18295626902861302}
   - component: {fileID: 18295626902861303}
   - component: {fileID: 18295626902861296}
+  - component: {fileID: 7621834282294716102}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -105,6 +106,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &7621834282294716102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18295626902861297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a629c002ba0b17c439ea7fc793445fcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smashSliderFill: {fileID: 5754265838236375972}
+  smashSliderFrame: {fileID: 7094719322377555420}
 --- !u!1 &18295626922090465
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,6 +537,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1641553309259598220}
   - component: {fileID: 915769969343094768}
+  - component: {fileID: 6690692257272534334}
   m_Layer: 5
   m_Name: SliderRecurso
   m_TagString: Untagged
@@ -603,6 +619,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6690692257272534334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158482098323453141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7063a94280db5d4292a14fef57093a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &428029281633074281
 GameObject:
   m_ObjectHideFlags: 0
@@ -1688,6 +1716,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4905747878962403643}
   - component: {fileID: 6229263365982292183}
+  - component: {fileID: 1747077555662289936}
   m_Layer: 5
   m_Name: SliderMachaca
   m_TagString: Untagged
@@ -1769,6 +1798,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1747077555662289936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5754265838236375972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67b156f22f7e3874b9082d31b9bf1f87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sliderSmash: {fileID: 0}
 --- !u!1 &5881142032360861391
 GameObject:
   m_ObjectHideFlags: 0
