@@ -112,6 +112,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9041649454616639831}
+  - component: {fileID: 4244825350500300694}
   m_Layer: 0
   m_Name: Goblin
   m_TagString: Untagged
@@ -135,6 +136,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &4244825350500300694
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9041649454616639828}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 090fdfc370ef2e947a91c7bd6f49ebcc, type: 3}
+  m_Controller: {fileID: 9100000, guid: c3248343d5477c3469088dece343035a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &9041649455736564850
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,27 +266,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6170820854880140536, guid: 65e3b6dcd0d9dc84b8ce9482c374de52, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.3
+      value: 0.38095587
       objectReference: {fileID: 0}
     - target: {fileID: 6170820854880140536, guid: 65e3b6dcd0d9dc84b8ce9482c374de52, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.3
+      value: 0.38095587
       objectReference: {fileID: 0}
     - target: {fileID: 6170820854880140536, guid: 65e3b6dcd0d9dc84b8ce9482c374de52, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.3
+      value: 0.38095587
       objectReference: {fileID: 0}
     - target: {fileID: 6170820854880140536, guid: 65e3b6dcd0d9dc84b8ce9482c374de52, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.048869
       objectReference: {fileID: 0}
     - target: {fileID: 6170820854880140536, guid: 65e3b6dcd0d9dc84b8ce9482c374de52, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.21
+      value: -0.3783
       objectReference: {fileID: 0}
     - target: {fileID: 6170820854880140536, guid: 65e3b6dcd0d9dc84b8ce9482c374de52, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.0054232
       objectReference: {fileID: 0}
     - target: {fileID: 6170820854880140536, guid: 65e3b6dcd0d9dc84b8ce9482c374de52, type: 3}
       propertyPath: m_LocalRotation.w

@@ -1,19 +1,9 @@
 fileFormatVersion: 2
-guid: 02b1e50a6dc65ec4c8864c36747aaed5
+guid: eb61472a6dd49974081c67c80d26520c
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: M_CuerpoGobling
-    second: {fileID: 2100000, guid: 7b531f74ef3ecc643b6d5c567957c1a6, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: M_Culo
-    second: {fileID: 2100000, guid: 83b12cd0df6b26d48ac289e2e9a1f671, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
