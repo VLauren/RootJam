@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,7 +16,11 @@ public class RJChar : MonoBehaviour
     public float maxZMovement = 5;
 
     public bool canMove = true;
-    public bool canGather = false;
+
+    public static RJResource currentResource = null;
+
+
+    public static bool canGather = false;
 
     float distToCenter;
 
@@ -48,7 +53,7 @@ public class RJChar : MonoBehaviour
             Movement();
         }
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && currentResource != null)
         {
             //una vez se pulsa el boton se para el movimiento y lo pone como lo contrario a lo que esté
             canMove = !canMove;
@@ -104,6 +109,7 @@ public class RJChar : MonoBehaviour
             canMove = !canMove;
             RJPlanet.ChangeMaterial(!canMove);
             RJCam.Instance.MovementActive = canMove;
+            Destroy(RJChar.currentResource.gameObject);
 
             print("PUNTASO Y FUERA");
         }
