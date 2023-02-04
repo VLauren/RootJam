@@ -127,7 +127,6 @@ public class RJChar : MonoBehaviour
             RJCam.Instance.MovementActive = canMove;
 
             canGather = !canGather;
-
         }
 
         //machacar el botón para para que el chonko recoja recursos

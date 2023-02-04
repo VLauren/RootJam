@@ -43,6 +43,8 @@ public class RJPlanet : MonoBehaviour
 
     public static void ChangeMaterial(bool transparent)
     {
+        return; // Ya veremos
+
         if (transparent)
             Instance.GetComponent<Renderer>().material = Instance.TransparentMaterial;
         else
