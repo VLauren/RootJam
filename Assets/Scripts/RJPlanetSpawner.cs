@@ -30,6 +30,10 @@ public class RJPlanetSpawner : MonoBehaviour
         foreach (var reso in resources)
             Destroy(reso.gameObject);
 
+        var projectiles = FindObjectsOfType<EnemyProjectile>();
+        foreach (var proj in projectiles)
+            Destroy(proj.gameObject);
+
         RJGame.ResetValues();
         CurrentPlanet = Instantiate(Planets[0], Vector3.zero, Quaternion.identity);
         CurrentPlayer = Instantiate(PlayerPrefab, Vector3.zero, Quaternion.Euler(-59, 0, 0));
@@ -37,11 +41,11 @@ public class RJPlanetSpawner : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.N))
-            StartCoroutine(NewPlanetRoutine());
+        // if (Input.GetKeyDown(KeyCode.N))
+            // StartCoroutine(NewPlanetRoutine());
     }
 
-    IEnumerator NewPlanetRoutine()
+    public IEnumerator NewPlanetRoutine()
     {
         CurrentPlayer.transform.GetChild(0).GetComponent<RJChar>().enabled = false;
         var camScr = Camera.main.GetComponent<RJCam>();
