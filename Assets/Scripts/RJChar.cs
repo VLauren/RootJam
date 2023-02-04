@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class RJChar : MonoBehaviour
 {
+    public static RJChar Instance { get; private set; }
+
     CharacterController CharacterController;
 
     public int hVelocity = 8;
@@ -18,9 +20,15 @@ public class RJChar : MonoBehaviour
     float distToCenter;
 
     Vector3 AnglePos;
+    Quaternion TargetRotation;
+
 
     public Transform Dummy;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     void Start()
     {
@@ -63,14 +71,20 @@ public class RJChar : MonoBehaviour
 
     void Movement()
     {
-        // Magia, no pregunteis
-        Dummy.transform.parent.rotation = Quaternion.Euler(
-            Mathf.Clamp(Dummy.transform.parent.rotation.eulerAngles.x - Time.deltaTime * vVelocity * Input.GetAxisRaw("Vertical"), 290, 304),
-            Dummy.transform.parent.rotation.eulerAngles.y - Time.deltaTime * hVelocity * Input.GetAxisRaw("Horizontal"),
-            Dummy.transform.parent.rotation.eulerAngles.z);
+        Vector3 moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
 
-        transform.position = Dummy.transform.position;
-        transform.rotation = Dummy.transform.rotation;
+        // Movimiento
+        RJUtil.SphereMove(transform, new Vector3(
+            Time.deltaTime * vVelocity * moveInput.z,
+            Time.deltaTime * hVelocity * moveInput.x,
+            0));
+
+        // Orientacion del modelo
+        if (moveInput != Vector3.zero)
+        {
+            TargetRotation = Quaternion.LookRotation(moveInput, Vector3.up);
+            transform.Find("Model").localRotation = Quaternion.RotateTowards(transform.Find("Model").localRotation, TargetRotation, Time.deltaTime * 800);
+        }
     }
 
     void ResourceGather()

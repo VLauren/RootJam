@@ -12,17 +12,20 @@ public class RJCam : MonoBehaviour
     [Space()]
     public float SmoothTime;
 
-    public bool MovementActive;
+    public bool MovementActive = true;
 
     Transform Target;
     Vector3 DampVelocity;
     float Vel;
     float TargetY;
 
-    void Start()
+    void Awake()
     {
         Instance = this;
+    }
 
+    void Start()
+    {
         Target = FindObjectOfType<RJChar>().transform;
     }
 
