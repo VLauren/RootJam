@@ -13,8 +13,6 @@ public class RJPlanet : MonoBehaviour
 
     [Space()]
     public Color BackgroundColor;
-    public Color ShadowColor;
-
 
     float GoblinSpawnRate = 0.2f;
 
