@@ -65,6 +65,26 @@ public class RJChar : MonoBehaviour
             //una vez se pulsa el boton se para el movimiento y lo pone como lo contrario a lo que esté
             canMove = !canMove;
 
+            print("aqui tiene que estar agachadito");
+
+            if (CurrentLevel < 1)
+            {
+                transform.Find("Model/Lvl1").gameObject.SetActive(false);
+                transform.Find("Model/Rooted1").gameObject.SetActive(true);
+                transform.Find("Model/Lvl2").gameObject.SetActive(false);
+                transform.Find("Model/Rooted2").gameObject.SetActive(false);
+
+            }
+            else if (CurrentLevel == 1)
+            {
+                transform.Find("Model/Lvl1").gameObject.SetActive(false);
+                transform.Find("Model/Rooted1").gameObject.SetActive(false);
+                transform.Find("Model/Lvl2").gameObject.SetActive(false);
+                transform.Find("Model/Rooted2").gameObject.SetActive(true);
+
+            }
+
+
             RJPlanet.ChangeMaterial(!canMove);
             RJCam.Instance.MovementActive = canMove;
 
@@ -75,6 +95,8 @@ public class RJChar : MonoBehaviour
         //machacar el botón para para que el chonko recoja recursos
         if (Input.GetButtonDown("Fire2") && canGather)
         {
+
+
             ResourceGather();
             print("punticos " + RJGame.growthPoints);
         }
@@ -108,6 +130,16 @@ public class RJChar : MonoBehaviour
 
         RJGame.currentGatherPoints += RJGame.resource1Points;
         print("currentGatherPoints " + RJGame.currentGatherPoints);
+
+
+
+
+        // if (CurrentLevel == 1)
+        // {
+
+        // }
+
+
         if (RJGame.currentGatherPoints == RJGame.resource1Size)
         {
             RJGame.growthPoints += RJGame.resource1Size;
@@ -120,6 +152,23 @@ public class RJChar : MonoBehaviour
             RJCam.Instance.MovementActive = canMove;
             Destroy(RJChar.currentResource.gameObject);
 
+            if (CurrentLevel < 1)
+            {
+                transform.Find("Model/Lvl1").gameObject.SetActive(true);
+                transform.Find("Model/Rooted1").gameObject.SetActive(false);
+                transform.Find("Model/Lvl2").gameObject.SetActive(false);
+                transform.Find("Model/Rooted2").gameObject.SetActive(false);
+
+            }
+            else if (CurrentLevel == 1)
+            {
+                transform.Find("Model/Lvl1").gameObject.SetActive(false);
+                transform.Find("Model/Rooted1").gameObject.SetActive(false);
+                transform.Find("Model/Lvl2").gameObject.SetActive(true);
+                transform.Find("Model/Rooted2").gameObject.SetActive(false);
+
+            }
+
             print("PUNTASO Y FUERA");
         }
 
@@ -130,7 +179,7 @@ public class RJChar : MonoBehaviour
 
     void Evolution()
     {
-        if(CurrentLevel < 1 && RJGame.CheckCurrentLevel() == 1)
+        if (CurrentLevel < 1 && RJGame.CheckCurrentLevel() == 1)
         {
             // fase 2
             CurrentLevel = 1;
@@ -141,28 +190,28 @@ public class RJChar : MonoBehaviour
 
             AttackTimeRemaining = 0.5f;
         }
-        if(CurrentLevel < 2 && RJGame.CheckCurrentLevel() == 2)
+        if (CurrentLevel < 2 && RJGame.CheckCurrentLevel() == 2)
         {
             // fase 3
         }
-        if(CurrentLevel < 3 && RJGame.CheckCurrentLevel() == 3)
+        if (CurrentLevel < 3 && RJGame.CheckCurrentLevel() == 3)
         {
             // splosion
         }
 
         // HACK btnes de debug
 
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            RJGame.growthPoints = 1; 
+            RJGame.growthPoints = 1;
         }
-        if(Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            RJGame.growthPoints = 10; 
+            RJGame.growthPoints = 10;
         }
-        if(Input.GetKeyDown(KeyCode.Alpha3))
+        if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            RJGame.growthPoints = 20; 
+            RJGame.growthPoints = 20;
         }
     }
 
