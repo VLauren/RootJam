@@ -22,6 +22,7 @@ public class RJChar : MonoBehaviour
 
     [Header("Attack")]
     public GameObject Attack1Area;
+    public GameObject Attack2Area;
     public float AttackDuration = 0.5f;
     float AttackTimeRemaining = 0f;
 
@@ -46,6 +47,7 @@ public class RJChar : MonoBehaviour
         CharacterController = GetComponent<CharacterController>();
         Lvl1Animator = transform.Find("Model/Lvl1").GetComponent<Animator>();
         Lvl2Animator = transform.Find("Model/Lvl2").GetComponent<Animator>();
+        Lvl3Animator = transform.Find("Model/Lvl3").GetComponent<Animator>();
 
         AnglePos = transform.rotation.eulerAngles;
 
@@ -65,6 +67,8 @@ public class RJChar : MonoBehaviour
                 transform.Find("Model/Rooted1").gameObject.SetActive(false);
                 transform.Find("Model/Lvl2").gameObject.SetActive(false);
                 transform.Find("Model/Rooted2").gameObject.SetActive(false);
+                transform.Find("Model/Lvl3").gameObject.SetActive(false);
+                transform.Find("Model/Rooted3").gameObject.SetActive(false);
 
             }
             else if (CurrentLevel == 1)
@@ -73,7 +77,18 @@ public class RJChar : MonoBehaviour
                 transform.Find("Model/Rooted1").gameObject.SetActive(false);
                 transform.Find("Model/Lvl2").gameObject.SetActive(true);
                 transform.Find("Model/Rooted2").gameObject.SetActive(false);
+                transform.Find("Model/Lvl3").gameObject.SetActive(false);
+                transform.Find("Model/Rooted3").gameObject.SetActive(false);
 
+            }
+            else if(CurrentLevel == 2)
+            {
+                transform.Find("Model/Lvl1").gameObject.SetActive(false);
+                transform.Find("Model/Rooted1").gameObject.SetActive(false);
+                transform.Find("Model/Lvl2").gameObject.SetActive(false);
+                transform.Find("Model/Rooted2").gameObject.SetActive(false);
+                transform.Find("Model/Lvl3").gameObject.SetActive(true);
+                transform.Find("Model/Rooted3").gameObject.SetActive(false);
             }
 
         }
@@ -86,7 +101,8 @@ public class RJChar : MonoBehaviour
                 transform.Find("Model/Rooted1").gameObject.SetActive(true);
                 transform.Find("Model/Lvl2").gameObject.SetActive(false);
                 transform.Find("Model/Rooted2").gameObject.SetActive(false);
-
+                transform.Find("Model/Lvl3").gameObject.SetActive(false);
+                transform.Find("Model/Rooted3").gameObject.SetActive(false);
             }
             else if (CurrentLevel == 1)
             {
@@ -94,7 +110,18 @@ public class RJChar : MonoBehaviour
                 transform.Find("Model/Rooted1").gameObject.SetActive(false);
                 transform.Find("Model/Lvl2").gameObject.SetActive(false);
                 transform.Find("Model/Rooted2").gameObject.SetActive(true);
+                transform.Find("Model/Lvl3").gameObject.SetActive(false);
+                transform.Find("Model/Rooted3").gameObject.SetActive(false);
 
+            }
+            else if(CurrentLevel == 2)
+            {
+                transform.Find("Model/Lvl1").gameObject.SetActive(false);
+                transform.Find("Model/Rooted1").gameObject.SetActive(false);
+                transform.Find("Model/Lvl2").gameObject.SetActive(false);
+                transform.Find("Model/Rooted2").gameObject.SetActive(false);
+                transform.Find("Model/Lvl3").gameObject.SetActive(false);
+                transform.Find("Model/Rooted3").gameObject.SetActive(true);
             }
         }
 
@@ -140,6 +167,7 @@ public class RJChar : MonoBehaviour
 
         Evolution();
         AttackLevel1();
+        AttackLevel2();
     }
 
     void Movement()
@@ -159,6 +187,7 @@ public class RJChar : MonoBehaviour
 
         Lvl1Animator.SetFloat("Speed", moveInput.magnitude);
         Lvl2Animator.SetFloat("Speed", moveInput.magnitude);
+        Lvl3Animator.SetFloat("Speed", moveInput.magnitude);
     }
 
     void ResourceGather()
@@ -221,6 +250,13 @@ public class RJChar : MonoBehaviour
         if (CurrentLevel < 2 && RJGame.CheckCurrentLevel() == 2)
         {
             // fase 3
+            CurrentLevel = 2;
+
+            transform.Find("Model/Lvl2").gameObject.SetActive(false);
+            transform.Find("Model/Rooted2").gameObject.SetActive(false);
+            transform.Find("Model/Lvl3").gameObject.SetActive(true);
+
+            AttackTimeRemaining = 0.5f;
         }
         if (CurrentLevel < 3 && RJGame.CheckCurrentLevel() == 3)
         {
@@ -235,11 +271,11 @@ public class RJChar : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            RJGame.growthPoints = 10;
+            RJGame.growthPoints = 20;
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            RJGame.growthPoints = 20;
+            RJGame.growthPoints = 40;
         }
     }
 
@@ -279,5 +315,43 @@ public class RJChar : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
 
         Attack1Area.gameObject.SetActive(true);
+    }
+
+    void AttackLevel2()
+    {
+        if (!canMove || CurrentLevel != 2) return;
+
+        if (AttackTimeRemaining > 0)
+            AttackTimeRemaining -= Time.deltaTime;
+        else
+        {
+            AttackTimeRemaining = 0f;
+            Attack2Area.gameObject.SetActive(false);
+        }
+
+        if (AttackTimeRemaining > 0)
+            return;
+
+        if (Input.GetButtonDown("Fire2"))
+            StartCoroutine(Level2Attack());
+    }
+
+    IEnumerator Level2Attack()
+    {
+        AttackTimeRemaining = AttackDuration;
+
+        Lvl3Animator.SetTrigger("Attack");
+
+        yield return new WaitForSeconds(0.1f);
+
+        // Vector3 FXPos = transform.Find("AtkFXPos").position;
+        // var fx = WJVisualFX.Effect(2, FXPos, Quaternion.Euler(0, -90, 0) * transform.rotation);
+        // fx.transform.parent = transform;
+
+        // TODO camera shake
+
+        yield return new WaitForSeconds(0.1f);
+
+        Attack2Area.gameObject.SetActive(true);
     }
 }
