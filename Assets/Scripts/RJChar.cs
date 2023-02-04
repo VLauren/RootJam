@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class RJChar : MonoBehaviour
 {
     CharacterController CharacterController;
@@ -12,11 +13,14 @@ public class RJChar : MonoBehaviour
     public float maxZMovement = 5;
 
     public bool canMove = true;
+    public bool canGather = false;
+
     float distToCenter;
 
     Vector3 AnglePos;
 
     public Transform Dummy;
+
 
     void Start()
     {
@@ -43,7 +47,18 @@ public class RJChar : MonoBehaviour
 
             RJPlanet.ChangeMaterial(!canMove);
             RJCam.Instance.MovementActive = canMove;
+
+            canGather = !canGather;
+
         }
+
+        //machacar el botón para para que el chonko recoja recursos
+        if (Input.GetButtonDown("Fire2") && canGather)
+        {
+            ResourceGather();
+            print("punticos " + RJGame.growthPoints);
+        }
+
     }
 
     void Movement()
@@ -56,5 +71,31 @@ public class RJChar : MonoBehaviour
 
         transform.position = Dummy.transform.position;
         transform.rotation = Dummy.transform.rotation;
+    }
+
+    void ResourceGather()
+    {
+        //cogemos los puntos de recursos, sumamos a los puntos del jugador por cada vez que pulse la tecla, y eso se comprueba con checkcurrent para cuando suba de nivel
+
+
+        RJGame.currentGatherPoints += RJGame.resource1Points;
+        print("currentGatherPoints " + RJGame.currentGatherPoints);
+        if (RJGame.currentGatherPoints == RJGame.resource1Size)
+        {
+            RJGame.growthPoints += RJGame.resource1Size;
+
+            //resetea todo
+            RJGame.currentGatherPoints = 0;
+            canGather = !canGather;
+            canMove = !canMove;
+            RJPlanet.ChangeMaterial(!canMove);
+            RJCam.Instance.MovementActive = canMove;
+
+            print("PUNTASO Y FUERA");
+        }
+
+        //RJGame.playerResources += RJGame.growthPoints;
+
+        RJGame.CheckCurrentLevel();
     }
 }
