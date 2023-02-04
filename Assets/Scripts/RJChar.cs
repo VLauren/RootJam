@@ -28,6 +28,12 @@ public class RJChar : MonoBehaviour
     Vector3 AnglePos;
     Quaternion TargetRotation;
 
+    // ========================================
+
+    Animator Lvl1Animator;
+    Animator Lvl2Animator;
+    Animator Lvl3Animator;
+
     public int CurrentLevel { get; private set; }
 
     private void Awake()
@@ -38,6 +44,8 @@ public class RJChar : MonoBehaviour
     void Start()
     {
         CharacterController = GetComponent<CharacterController>();
+        Lvl1Animator = transform.Find("Model/Lvl1").GetComponent<Animator>();
+        Lvl2Animator = transform.Find("Model/Lvl2").GetComponent<Animator>();
 
         AnglePos = transform.rotation.eulerAngles;
 
@@ -89,6 +97,9 @@ public class RJChar : MonoBehaviour
             TargetRotation = Quaternion.LookRotation(-moveInput, Vector3.up);
             transform.Find("Model").localRotation = Quaternion.RotateTowards(transform.Find("Model").localRotation, TargetRotation, Time.deltaTime * 360);
         }
+
+        Lvl1Animator.SetFloat("Speed", moveInput.magnitude);
+        Lvl2Animator.SetFloat("Speed", moveInput.magnitude);
     }
 
     void ResourceGather()

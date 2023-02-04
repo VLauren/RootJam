@@ -26,10 +26,10 @@ public class RJPlanet : MonoBehaviour
 
     public void SpawnPlanetElements()
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 3; i++)
             Instantiate(GoblinPrefab, Vector3.zero, Quaternion.Euler(Random.Range(-70, -54), Random.Range(-180, 180), 0));
 
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 20; i++)
             Instantiate(Resource1Prefab, Vector3.zero, Quaternion.Euler(Random.Range(-70, -54), Random.Range(-180, 180), 0));
     }
 
