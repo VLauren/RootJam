@@ -3,7 +3,22 @@ guid: eb61472a6dd49974081c67c80d26520c
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_PlanetaRocosoClaro
+    second: {fileID: 2100000, guid: 40ef9a01d50426348ad65114067376a9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_PlanetaRocosoNegro
+    second: {fileID: 2100000, guid: b12dfc10a6f5b55419144cbd5ba36a4b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_PlanetaRocosoOscuro
+    second: {fileID: 2100000, guid: 98862482b03360e4dbdbd2e8396235bd, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
