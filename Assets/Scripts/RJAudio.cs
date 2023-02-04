@@ -17,6 +17,9 @@ public class RJAudio : MonoBehaviour
         AudioSource.SetIntVar("musicvar", 0);
         AudioSource.Play("musica");
 
+        AudioSource.SetIntVar("sfxvar", 5);
+        AudioSource.Play("sfx");
+
         print("sonido lanzado");
     }
 }
