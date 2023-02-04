@@ -17,6 +17,8 @@ public class RJGoblin : MonoBehaviour
 
     Quaternion TargetRotation;
 
+    public int healthPoints = 30;
+
     void Start()
     {
         StartCoroutine(Shooting()); // Anyways I started blasting
@@ -73,10 +75,15 @@ public class RJGoblin : MonoBehaviour
             Instantiate(Projectile, transform.Find("ProjectileSpawnPoint").position, Quaternion.identity);
     }
 
-    // TODO daño y muerte
+    // TODO daï¿½o y muerte
 
     public void ApplyDamage(int damage)
     {
-        Destroy(gameObject);
+        healthPoints -= damage;
+        if (healthPoints <= 0)
+        {
+
+            Destroy(gameObject);
+        }
     }
 }
