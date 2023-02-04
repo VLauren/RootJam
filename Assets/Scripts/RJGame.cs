@@ -14,7 +14,7 @@ static class RJGame
     static int level0BreakPoint = 0;
     static int level1BreakPoint = 10;
     static int level2BreakPoint = 20;
-    static int level3BreakPoint = 30;
+    public static int level3BreakPoint = 30;
 
     //enverda esto lo mismo no hace falta
     //public static int playerResources = 0;
