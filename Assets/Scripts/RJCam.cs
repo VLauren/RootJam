@@ -46,6 +46,9 @@ public class RJCam : MonoBehaviour
 
     void LateUpdate()
     {
+        if (RJChar.Instance == null)
+            return;
+
         float newParentRotY = RJChar.Instance.transform.parent.eulerAngles.y;
 
         Vector3 newParentEuler = new Vector3(RJChar.Instance.canMove ? Fase1MovingAngle : Fase1RootedAngle, newParentRotY, 0);

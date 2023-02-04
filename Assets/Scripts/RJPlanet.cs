@@ -11,6 +11,11 @@ public class RJPlanet : MonoBehaviour
     public GameObject GoblinPrefab;
     public GameObject Resource1Prefab;
 
+    [Space()]
+    public Color BackgroundColor;
+    public Color ShadowColor;
+
+
     float GoblinSpawnRate = 0.2f;
 
     Material StartMaterial;

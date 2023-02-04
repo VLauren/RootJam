@@ -44,6 +44,13 @@ static class RJGame
 
     public static int currentGatherPoints = 0;
 
+    public static void ResetValues()
+    {
+        currentGatherPoints = 0;
+        growthPoints = 0;
+        planetLevel = 0;
+    }
+
     public static void AddGrowthPoints(int points)
     {
         growthPoints += points;

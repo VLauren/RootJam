@@ -13,8 +13,6 @@ public class PlayerHitBox : MonoBehaviour
             other.GetComponent<RJGoblin>().ApplyDamage(Damage);
 
             // TODO VFX & audio
-
-            print("=????");
         }
     }
 
