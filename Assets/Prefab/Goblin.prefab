@@ -320,8 +320,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goblin
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 235036050958722690, guid: 65e3b6dcd0d9dc84b8ce9482c374de52, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 65e3b6dcd0d9dc84b8ce9482c374de52, type: 3}
+--- !u!1 &5943022641011040255 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6838989207386695234, guid: 65e3b6dcd0d9dc84b8ce9482c374de52, type: 3}
+  m_PrefabInstance: {fileID: 905544487346026941}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &3545890388074446053
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5943022641011040255}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0a20cce79af1f8841bb036b78e7de246, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!4 &6427211946296165701 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6170820854880140536, guid: 65e3b6dcd0d9dc84b8ce9482c374de52, type: 3}
