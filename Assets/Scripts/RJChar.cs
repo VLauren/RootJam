@@ -38,6 +38,9 @@ public class RJChar : MonoBehaviour
         {
             //una vez se pulsa el boton se para el movimiento y lo pone como lo contrario a lo que esté
             canMove = !canMove;
+
+            RJPlanet.ChangeMaterial(!canMove);
+            RJCam.Instance.MovementActive = canMove;
         }
     }
 
