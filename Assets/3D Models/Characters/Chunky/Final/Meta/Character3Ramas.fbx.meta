@@ -3,7 +3,17 @@ guid: f05339ac877926d4eb0e811665540628
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Madera
+    second: {fileID: 2100000, guid: e1f1b3a1157040845920a25d9b6c4f6b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "M_Pu\xF1os"
+    second: {fileID: 2100000, guid: 812f025e85c4725448fa1651e0abbc33, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

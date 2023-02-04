@@ -294,10 +294,10 @@ MonoBehaviour:
   Fase2RootedAngle: -99
   Fase2RootedTilt: -21.3
   Fase2RootedDistance: 46.5
-  Fase3MovingAngle: -121
-  Fase3MovingTilt: -21
-  Fase3MovingDistance: 0
-  Fase3RootedAngle: -121
-  Fase3RootedTilt: -21
-  Fase3RootedDistance: 0
+  Fase3MovingAngle: -132.7
+  Fase3MovingTilt: -10.8
+  Fase3MovingDistance: 56.3
+  Fase3RootedAngle: -90.9
+  Fase3RootedTilt: -12.4
+  Fase3RootedDistance: 80.5
   MovementActive: 0
