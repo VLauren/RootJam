@@ -83,7 +83,7 @@ public class RJChar : MonoBehaviour
         if (moveInput != Vector3.zero)
         {
             TargetRotation = Quaternion.LookRotation(moveInput, Vector3.up);
-            transform.Find("Model").localRotation = Quaternion.RotateTowards(transform.Find("Model").localRotation, TargetRotation, Time.deltaTime * 800);
+            transform.Find("Model").localRotation = Quaternion.RotateTowards(transform.Find("Model").localRotation, TargetRotation, Time.deltaTime * 360);
         }
     }
 

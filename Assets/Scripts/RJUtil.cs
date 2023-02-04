@@ -17,6 +17,8 @@ public static class RJUtil
             MovementDummy.Instance.transform.parent.rotation.eulerAngles.y - movement.y,
             MovementDummy.Instance.transform.parent.rotation.eulerAngles.z);
 
+        Debug.Log(MovementDummy.Instance.transform.parent.rotation.eulerAngles.x);
+
         transformToMove.position = MovementDummy.Instance.transform.position;
         transformToMove.rotation = MovementDummy.Instance.transform.rotation;
     }

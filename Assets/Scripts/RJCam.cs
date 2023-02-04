@@ -41,7 +41,7 @@ public class RJCam : MonoBehaviour
         */
 
         if (MovementActive)
-            TargetY -= Time.deltaTime * 16 * Input.GetAxisRaw("Horizontal");
+            TargetY -= Time.deltaTime * RJChar.Instance.hVelocity * Input.GetAxisRaw("Horizontal");
 
         // float newRotY = Mathf.SmoothDamp(transform.parent.rotation.eulerAngles.y, TargetY, ref Vel, 0.1f);
         float newRotY = TargetY;
