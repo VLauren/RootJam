@@ -6,6 +6,9 @@ public class RJCam : MonoBehaviour
 {
     public static RJCam Instance { get; private set; }
 
+    public float SmoothTime = 0.1f;
+
+    [Space()]
     public float Fase1MovingAngle = -121;
     public float Fase1MovingTilt = -21;
     public float Fase1MovingDistance = 45;
@@ -32,6 +35,10 @@ public class RJCam : MonoBehaviour
     [HideInInspector]
     public bool MovementActive = true;
 
+    Vector3 smoothVel;
+    Vector3 parentSmoothVel;
+    float distSmoothVel;
+
     void Awake()
     {
         Instance = this;
@@ -41,17 +48,23 @@ public class RJCam : MonoBehaviour
     {
         float newParentRotY = RJChar.Instance.transform.parent.eulerAngles.y;
 
-        Vector3 newParentEuler = new Vector3(
-            RJChar.Instance.canMove ? Fase1MovingAngle : Fase1RootedAngle,
-            newParentRotY,
-            0);
-
+        Vector3 newParentEuler = new Vector3(RJChar.Instance.canMove ? Fase1MovingAngle : Fase1RootedAngle, newParentRotY, 0);
         Vector3 newLocalEulerAngles = new Vector3(RJChar.Instance.canMove ? Fase1MovingTilt : Fase1RootedTilt, -180, 0);
-
         float newDistance = RJChar.Instance.canMove ? Fase1MovingDistance : Fase1RootedDistance;
 
-        transform.parent.eulerAngles = newParentEuler;
-        transform.localEulerAngles = newLocalEulerAngles;
-        transform.localPosition = new Vector3(0, 0, newDistance);
+
+        // transform.parent.eulerAngles = newParentEuler;
+        // transform.parent.rotation = Quaternion.Euler(newParentEuler);
+        // transform.parent.rotation = Quaternion.RotateTowards(Quaternion.Euler(transform.parent.eulerAngles), Quaternion.Euler(newParentEuler), Time.deltaTime * 90);
+        // transform.parent.eulerAngles = Vector3.SmoothDamp(transform.parent.eulerAngles, newParentEuler, ref parentSmoothVel, 0.1f);
+        transform.parent.rotation = RJUtil.SmoothDampQuaternion(Quaternion.Euler(transform.parent.eulerAngles), Quaternion.Euler(newParentEuler), ref parentSmoothVel, SmoothTime);
+
+        // transform.localEulerAngles = newLocalEulerAngles;
+        // transform.localRotation = Quaternion.RotateTowards(Quaternion.Euler(transform.localEulerAngles), Quaternion.Euler(newLocalEulerAngles), Time.deltaTime * 90);
+        // transform.localEulerAngles = Vector3.SmoothDamp(transform.localEulerAngles, newLocalEulerAngles, ref smoothVel, 0.1f);
+        transform.localRotation = RJUtil.SmoothDampQuaternion(Quaternion.Euler(transform.localEulerAngles), Quaternion.Euler(newLocalEulerAngles), ref smoothVel, SmoothTime);
+
+        // transform.localPosition = new Vector3(0, 0, newDistance);
+        transform.localPosition = new Vector3(0, 0, Mathf.SmoothDamp(transform.localPosition.z, newDistance, ref distSmoothVel, SmoothTime));
     }
 }
