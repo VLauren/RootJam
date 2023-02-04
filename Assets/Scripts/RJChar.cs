@@ -16,6 +16,8 @@ public class RJChar : MonoBehaviour
 
     Vector3 AnglePos;
 
+    public Transform Dummy;
+
     void Start()
     {
         CharacterController = GetComponent<CharacterController>();
@@ -43,8 +45,6 @@ public class RJChar : MonoBehaviour
             RJCam.Instance.MovementActive = canMove;
         }
     }
-
-    public Transform Dummy;
 
     void Movement()
     {
