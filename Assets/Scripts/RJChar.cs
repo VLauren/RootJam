@@ -72,12 +72,35 @@ public class RJChar : MonoBehaviour
     void Movement()
     {
         Vector3 moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        moveInput.Normalize();
 
         // Movimiento
         RJUtil.SphereMove(transform, new Vector3(
+        -Time.deltaTime * vVelocity * moveInput.z,
+        Time.deltaTime * hVelocity * moveInput.x,
+        0));
+
+        // Orientacion del modelo
+        if (moveInput != Vector3.zero)
+        {
+            TargetRotation = Quaternion.LookRotation(-moveInput, Vector3.up);
+            transform.Find("Model").localRotation = Quaternion.RotateTowards(transform.Find("Model").localRotation, TargetRotation, Time.deltaTime * 360);
+        }
+
+        return;
+
+        Vector3 deltaMov;
+        // Quaternion deltaRot;
+        Quaternion targetRot;
+        RJUtil.SphereMove(transform, new Vector3(
             Time.deltaTime * vVelocity * moveInput.z,
             Time.deltaTime * hVelocity * moveInput.x,
-            0));
+            // 0), out deltaMov, out deltaRot);
+            0), out deltaMov, out targetRot);
+
+        transform.position += deltaMov;
+        // CharacterController.Move(deltaMov);
+        transform.rotation = targetRot;
 
         // Orientacion del modelo
         if (moveInput != Vector3.zero)

@@ -147,6 +147,7 @@ MonoBehaviour:
   minZMovement: -5
   maxZMovement: 5
   canMove: 1
+  canGather: 0
   Dummy: {fileID: 0}
 --- !u!143 &5933744296106704499
 CharacterController:
@@ -177,7 +178,6 @@ GameObject:
   - component: {fileID: 3776044462918448171}
   - component: {fileID: 8228798534030943584}
   - component: {fileID: 2333674877422136356}
-  - component: {fileID: 3399807020358498968}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -250,19 +250,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &3399807020358498968
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7276222051099815328}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000002
-  m_Center: {x: -0.000000029802322, y: 0.0000028610243, z: -0.0000019073495}
 --- !u!1 &9035449807050045763
 GameObject:
   m_ObjectHideFlags: 0

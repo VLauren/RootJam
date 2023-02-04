@@ -6,49 +6,52 @@ public class RJCam : MonoBehaviour
 {
     public static RJCam Instance { get; private set; }
 
-    public Vector3 Offset;
-    public float Angle;
+    public float Fase1MovingAngle = -121;
+    public float Fase1MovingTilt = -21;
+    public float Fase1MovingDistance = 45;
+    public float Fase1RootedAngle = -121;
+    public float Fase1RootedTilt = -21;
+    public float Fase1RootedDistance = 45;
 
     [Space()]
-    public float SmoothTime;
+    public float Fase2MovingAngle;
+    public float Fase2MovingTilt;
+    public float Fase2MovingDistance;
+    public float Fase2RootedAngle;
+    public float Fase2RootedTilt;
+    public float Fase2RootedDistance;
 
+    [Space()]
+    public float Fase3MovingAngle;
+    public float Fase3MovingTilt;
+    public float Fase3MovingDistance;
+    public float Fase3RootedAngle;
+    public float Fase3RootedTilt;
+    public float Fase3RootedDistance;
+
+    [HideInInspector]
     public bool MovementActive = true;
-
-    Transform Target;
-    Vector3 DampVelocity;
-    float Vel;
-    float TargetY;
 
     void Awake()
     {
         Instance = this;
     }
 
-    void Start()
-    {
-        Target = FindObjectOfType<RJChar>().transform;
-    }
-
     void LateUpdate()
     {
-        /*
-        Vector3 targetPosition = Target.position + transform.right * Offset.x + transform.up * Offset.y + transform.forward * Offset.z;
-        // Quaternion targetRotation = Target.rotation * Quaternion.Euler(Angle, 0, 0);
+        float newParentRotY = RJChar.Instance.transform.parent.eulerAngles.y;
 
-        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref DampVelocity, 0.1f);
-        // transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, Time.deltaTime * 360);
-        transform.rotation = Target.rotation * Quaternion.Euler(Angle, 0, 0);
-        */
+        Vector3 newParentEuler = new Vector3(
+            RJChar.Instance.canMove ? Fase1MovingAngle : Fase1RootedAngle,
+            newParentRotY,
+            0);
 
-        if (MovementActive)
-            TargetY -= Time.deltaTime * RJChar.Instance.hVelocity * Input.GetAxisRaw("Horizontal");
+        Vector3 newLocalEulerAngles = new Vector3(RJChar.Instance.canMove ? Fase1MovingTilt : Fase1RootedTilt, -180, 0);
 
-        // float newRotY = Mathf.SmoothDamp(transform.parent.rotation.eulerAngles.y, TargetY, ref Vel, 0.1f);
-        float newRotY = TargetY;
+        float newDistance = RJChar.Instance.canMove ? Fase1MovingDistance : Fase1RootedDistance;
 
-        transform.parent.rotation = Quaternion.Euler(
-            transform.parent.rotation.eulerAngles.x,
-            newRotY,
-            transform.parent.rotation.eulerAngles.z);
+        transform.parent.eulerAngles = newParentEuler;
+        transform.localEulerAngles = newLocalEulerAngles;
+        transform.localPosition = new Vector3(0, 0, newDistance);
     }
 }
