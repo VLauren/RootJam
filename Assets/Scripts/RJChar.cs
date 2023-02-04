@@ -58,15 +58,28 @@ public class RJChar : MonoBehaviour
         if (canMove)
         {
             Movement();
+
+            if (CurrentLevel < 1)
+            {
+                transform.Find("Model/Lvl1").gameObject.SetActive(true);
+                transform.Find("Model/Rooted1").gameObject.SetActive(false);
+                transform.Find("Model/Lvl2").gameObject.SetActive(false);
+                transform.Find("Model/Rooted2").gameObject.SetActive(false);
+
+            }
+            else if (CurrentLevel == 1)
+            {
+                transform.Find("Model/Lvl1").gameObject.SetActive(false);
+                transform.Find("Model/Rooted1").gameObject.SetActive(false);
+                transform.Find("Model/Lvl2").gameObject.SetActive(true);
+                transform.Find("Model/Rooted2").gameObject.SetActive(false);
+
+            }
+
         }
 
-        if (Input.GetButtonDown("Fire1") && currentResource != null)
+        if (!canMove)
         {
-            //una vez se pulsa el boton se para el movimiento y lo pone como lo contrario a lo que esté
-            canMove = !canMove;
-
-            print("aqui tiene que estar agachadito");
-
             if (CurrentLevel < 1)
             {
                 transform.Find("Model/Lvl1").gameObject.SetActive(false);
@@ -83,6 +96,31 @@ public class RJChar : MonoBehaviour
                 transform.Find("Model/Rooted2").gameObject.SetActive(true);
 
             }
+        }
+
+        if (Input.GetButtonDown("Fire1") && currentResource != null)
+        {
+            //una vez se pulsa el boton se para el movimiento y lo pone como lo contrario a lo que esté
+            canMove = !canMove;
+
+            print("aqui tiene que estar agachadito");
+
+            // if (CurrentLevel < 1)
+            // {
+            //     transform.Find("Model/Lvl1").gameObject.SetActive(false);
+            //     transform.Find("Model/Rooted1").gameObject.SetActive(true);
+            //     transform.Find("Model/Lvl2").gameObject.SetActive(false);
+            //     transform.Find("Model/Rooted2").gameObject.SetActive(false);
+
+            // }
+            // else if (CurrentLevel == 1)
+            // {
+            //     transform.Find("Model/Lvl1").gameObject.SetActive(false);
+            //     transform.Find("Model/Rooted1").gameObject.SetActive(false);
+            //     transform.Find("Model/Lvl2").gameObject.SetActive(false);
+            //     transform.Find("Model/Rooted2").gameObject.SetActive(true);
+
+            // }
 
 
             RJPlanet.ChangeMaterial(!canMove);
@@ -131,15 +169,6 @@ public class RJChar : MonoBehaviour
         RJGame.currentGatherPoints += RJGame.resource1Points;
         print("currentGatherPoints " + RJGame.currentGatherPoints);
 
-
-
-
-        // if (CurrentLevel == 1)
-        // {
-
-        // }
-
-
         if (RJGame.currentGatherPoints == RJGame.resource1Size)
         {
             RJGame.growthPoints += RJGame.resource1Size;
@@ -152,22 +181,22 @@ public class RJChar : MonoBehaviour
             RJCam.Instance.MovementActive = canMove;
             Destroy(RJChar.currentResource.gameObject);
 
-            if (CurrentLevel < 1)
-            {
-                transform.Find("Model/Lvl1").gameObject.SetActive(true);
-                transform.Find("Model/Rooted1").gameObject.SetActive(false);
-                transform.Find("Model/Lvl2").gameObject.SetActive(false);
-                transform.Find("Model/Rooted2").gameObject.SetActive(false);
+            // if (CurrentLevel < 1)
+            // {
+            //     transform.Find("Model/Lvl1").gameObject.SetActive(true);
+            //     transform.Find("Model/Rooted1").gameObject.SetActive(false);
+            //     transform.Find("Model/Lvl2").gameObject.SetActive(false);
+            //     transform.Find("Model/Rooted2").gameObject.SetActive(false);
 
-            }
-            else if (CurrentLevel == 1)
-            {
-                transform.Find("Model/Lvl1").gameObject.SetActive(false);
-                transform.Find("Model/Rooted1").gameObject.SetActive(false);
-                transform.Find("Model/Lvl2").gameObject.SetActive(true);
-                transform.Find("Model/Rooted2").gameObject.SetActive(false);
+            // }
+            // else if (CurrentLevel == 1)
+            // {
+            //     transform.Find("Model/Lvl1").gameObject.SetActive(false);
+            //     transform.Find("Model/Rooted1").gameObject.SetActive(false);
+            //     transform.Find("Model/Lvl2").gameObject.SetActive(true);
+            //     transform.Find("Model/Rooted2").gameObject.SetActive(false);
 
-            }
+            // }
 
             print("PUNTASO Y FUERA");
         }
