@@ -20,11 +20,19 @@ public class RJResource : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        RJChar.currentResource = this;
+        if (col.gameObject == RJChar.Instance.gameObject)
+        {
+
+            RJChar.currentResource = this;
+        }
     }
 
-    void OnTriggerExit(Collider other)
+    void OnTriggerExit(Collider col)
     {
-        RJChar.currentResource = null;
+        if (col.gameObject == RJChar.Instance.gameObject)
+        {
+
+            RJChar.currentResource = null;
+        }
     }
 }
