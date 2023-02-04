@@ -260,6 +260,8 @@ public class RJChar : MonoBehaviour
         if (CurrentLevel < 3 && RJGame.CheckCurrentLevel() == 3)
         {
             // splosion
+            RJPlanetSpawner spawner = FindObjectOfType<RJPlanetSpawner>();
+            spawner.StartCoroutine(spawner.NewPlanetRoutine());
         }
 
         // HACK btnes de debug

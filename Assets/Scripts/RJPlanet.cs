@@ -14,7 +14,7 @@ public class RJPlanet : MonoBehaviour
     [Space()]
     public Color BackgroundColor;
 
-    float GoblinSpawnRate = 0.2f;
+    public float GoblinSpawnRate = 0.2f;
 
     Material StartMaterial;
 
