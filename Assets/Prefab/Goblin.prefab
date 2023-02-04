@@ -100,7 +100,7 @@ MonoBehaviour:
   VVelocity: 5
   TargetDistance: 6
   FireRate: 0.5
-  Projectile: {fileID: 0}
+  Projectile: {fileID: 1879693305676368491, guid: 458e99cdade13374abf4122a14a75330, type: 3}
 --- !u!1 &9041649454616639828
 GameObject:
   m_ObjectHideFlags: 0

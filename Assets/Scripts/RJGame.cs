@@ -30,6 +30,8 @@ static class RJGame
     public static void AddGrowthPoints(int points)
     {
         growthPoints += points;
+        if (growthPoints < 0)
+            growthPoints = 0;
     }
 
     static int CheckLevel(int points)
