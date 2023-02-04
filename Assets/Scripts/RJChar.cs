@@ -2,7 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class RJChar : MonoBehaviour
 {
@@ -36,6 +37,11 @@ public class RJChar : MonoBehaviour
     Animator Lvl3Animator;
 
     public int CurrentLevel { get; private set; }
+
+    //lo del tiempo
+    //public GameObject timeDisplay;
+    public int seconds = 10;
+    public bool deductingTime;
 
     private void Awake()
     {
@@ -81,7 +87,7 @@ public class RJChar : MonoBehaviour
                 transform.Find("Model/Rooted3").gameObject.SetActive(false);
 
             }
-            else if(CurrentLevel == 2)
+            else if (CurrentLevel == 2)
             {
                 transform.Find("Model/Lvl1").gameObject.SetActive(false);
                 transform.Find("Model/Rooted1").gameObject.SetActive(false);
@@ -114,7 +120,7 @@ public class RJChar : MonoBehaviour
                 transform.Find("Model/Rooted3").gameObject.SetActive(false);
 
             }
-            else if(CurrentLevel == 2)
+            else if (CurrentLevel == 2)
             {
                 transform.Find("Model/Lvl1").gameObject.SetActive(false);
                 transform.Find("Model/Rooted1").gameObject.SetActive(false);
@@ -169,6 +175,15 @@ public class RJChar : MonoBehaviour
         Evolution();
         AttackLevel1();
         AttackLevel2();
+
+
+        if (!deductingTime)
+        {
+            deductingTime = true;
+            StartCoroutine(DeductSecond());
+        }
+
+
     }
 
     void Movement()
@@ -339,5 +354,21 @@ public class RJChar : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
 
         Attack2Area.gameObject.SetActive(true);
+    }
+
+    IEnumerator DeductSecond()
+    {
+        yield return new WaitForSeconds(1);
+        seconds -= 10;
+        //timeDisplay.GetComponent<Text>().text = seconds.ToString();
+        deductingTime = false;
+
+        if (seconds <= 0)
+        {
+            SceneManager.LoadScene("EscenaFin", LoadSceneMode.Single);
+            print("0 segundos");
+        }
+
+        print("segundos" + seconds);
     }
 }
