@@ -19,11 +19,28 @@ static class RJGame
     //enverda esto lo mismo no hace falta
     //public static int playerResources = 0;
 
+
+    //recursos recursos recursos 
     public static int resourceType = 0;
 
     public static int resource1Points = 1;
 
     public static int resource1Size = 8;
+
+    public static int resource2Points = 2;
+
+    public static int resource2Size = 16;
+
+    public static int resource3Points = 3;
+
+    public static int resource3Size = 18;
+
+    public static int resource4Points = 4;
+
+    public static int resource4Size = 20;
+    //recursos recursos recursos 
+
+
 
     public static int currentGatherPoints = 0;
 
@@ -65,11 +82,11 @@ static class RJGame
 
         if (points < level1BreakPoint)
             planetLevel = 0;
-        else if(points < level2BreakPoint)
+        else if (points < level2BreakPoint)
             planetLevel = 1;
-        else if(points < level3BreakPoint)
+        else if (points < level3BreakPoint)
             planetLevel = 2;
-        else if(points >= level3BreakPoint)
+        else if (points >= level3BreakPoint)
             planetLevel = 3;
 
         return planetLevel;
@@ -82,26 +99,38 @@ static class RJGame
     }
 
     //por si hiciera falta identificar diferentes tipos de recursos
-    /* 
+
     public static void CheckResource()
     {
-        case int value when value == level0BreakPoint:
-                planetLevel = 0;
-        break;
 
-            case int value when value <= level1BreakPoint:
-                planetLevel = 1;
-        break;
+        // if (points < level1BreakPoint)
+        //     planetLevel = 0;
+        // else if (points < level2BreakPoint)
+        //     planetLevel = 1;
+        // else if (points < level3BreakPoint)
+        //     planetLevel = 2;
+        // else if (points >= level3BreakPoint)
+        //     planetLevel = 3;
 
-            case int value when value <= level2BreakPoint:
-                planetLevel = 2;
-        break;
+        // return planetLevel;
 
-            case int value when value <= level3BreakPoint:
-                planetLevel = 3;
-        break;
-    } 
-    */
+        /*  case int value when value == level0BreakPoint:
+                 planetLevel = 0;
+         break;
+
+             case int value when value <= level1BreakPoint:
+                 planetLevel = 1;
+         break;
+
+             case int value when value <= level2BreakPoint:
+                 planetLevel = 2;
+         break;
+
+             case int value when value <= level3BreakPoint:
+                 planetLevel = 3;
+         break; */
+    }
+
 
 
 }

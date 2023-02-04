@@ -105,24 +105,6 @@ public class RJChar : MonoBehaviour
 
             print("aqui tiene que estar agachadito");
 
-            // if (CurrentLevel < 1)
-            // {
-            //     transform.Find("Model/Lvl1").gameObject.SetActive(false);
-            //     transform.Find("Model/Rooted1").gameObject.SetActive(true);
-            //     transform.Find("Model/Lvl2").gameObject.SetActive(false);
-            //     transform.Find("Model/Rooted2").gameObject.SetActive(false);
-
-            // }
-            // else if (CurrentLevel == 1)
-            // {
-            //     transform.Find("Model/Lvl1").gameObject.SetActive(false);
-            //     transform.Find("Model/Rooted1").gameObject.SetActive(false);
-            //     transform.Find("Model/Lvl2").gameObject.SetActive(false);
-            //     transform.Find("Model/Rooted2").gameObject.SetActive(true);
-
-            // }
-
-
             RJPlanet.ChangeMaterial(!canMove);
             RJCam.Instance.MovementActive = canMove;
 
@@ -132,9 +114,28 @@ public class RJChar : MonoBehaviour
         //machacar el botón para para que el chonko recoja recursos
         if (Input.GetButtonDown("Fire2") && canGather)
         {
+            // si da tiempo a implementar diferentes tipos de recursos, es esto + cambiar cosas en el slider smash
+            // if (CurrentLevel == 0 /* && RJResource.resourceLevel == 1 */)
 
+            ResourceGather(RJGame.resource1Points, RJGame.resource1Size);
+            print("recurso lvl1");
+            // }
+            // else if (CurrentLevel <= 1 /* && RJResource.resourceLevel == 2 */)
+            // {
+            //     ResourceGather(RJGame.resource2Points, RJGame.resource2Size);
+            //     print("recurso lvl2");
+            // }
+            // else if (CurrentLevel <= 2 /* && RJResource.resourceLevel == 3 */)
+            // {
+            //     ResourceGather(RJGame.resource3Points, RJGame.resource3Size);
+            //     print("recurso lvl3");
+            // }
+            // else if (CurrentLevel <= 3 /* && RJResource.resourceLevel == 4 */)
+            // {
+            //     ResourceGather(RJGame.resource4Points, RJGame.resource4Size);
+            //     print("recurso lvl4");
+            // }
 
-            ResourceGather();
             print("punticos " + RJGame.growthPoints);
         }
 
@@ -161,16 +162,16 @@ public class RJChar : MonoBehaviour
         Lvl2Animator.SetFloat("Speed", moveInput.magnitude);
     }
 
-    void ResourceGather()
+    void ResourceGather(int resourcePoints, int resourceSize)
     {
         //cogemos los puntos de recursos, sumamos a los puntos del jugador por cada vez que pulse la tecla, y eso se comprueba con checkcurrent para cuando suba de nivel
 
-        RJGame.currentGatherPoints += RJGame.resource1Points;
+        RJGame.currentGatherPoints += resourcePoints;
         print("currentGatherPoints " + RJGame.currentGatherPoints);
 
-        if (RJGame.currentGatherPoints == RJGame.resource1Size)
+        if (RJGame.currentGatherPoints == resourceSize)
         {
-            RJGame.growthPoints += RJGame.resource1Size;
+            RJGame.growthPoints += resourceSize;
 
             //resetea todo
             RJGame.currentGatherPoints = 0;
@@ -179,23 +180,6 @@ public class RJChar : MonoBehaviour
             RJPlanet.ChangeMaterial(!canMove);
             RJCam.Instance.MovementActive = canMove;
             Destroy(RJChar.currentResource.gameObject);
-
-            // if (CurrentLevel < 1)
-            // {
-            //     transform.Find("Model/Lvl1").gameObject.SetActive(true);
-            //     transform.Find("Model/Rooted1").gameObject.SetActive(false);
-            //     transform.Find("Model/Lvl2").gameObject.SetActive(false);
-            //     transform.Find("Model/Rooted2").gameObject.SetActive(false);
-
-            // }
-            // else if (CurrentLevel == 1)
-            // {
-            //     transform.Find("Model/Lvl1").gameObject.SetActive(false);
-            //     transform.Find("Model/Rooted1").gameObject.SetActive(false);
-            //     transform.Find("Model/Lvl2").gameObject.SetActive(true);
-            //     transform.Find("Model/Rooted2").gameObject.SetActive(false);
-
-            // }
 
             print("PUNTASO Y FUERA");
         }
@@ -242,6 +226,8 @@ public class RJChar : MonoBehaviour
             RJGame.growthPoints = 20;
         }
     }
+
+
 
     void AttackLevel1()
     {
