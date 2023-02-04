@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mat02_FloorTest
+  m_Name: Mat07
   m_Shader: {fileID: 4800000, guid: e516d75ad7ceafd48800110408a9ae18, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
@@ -87,6 +87,6 @@ Material:
     - _ZTest: 4
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.19806935, g: 0.35640025, b: 0.088655606, a: 1}
+    - _Color: {r: 0.12441761, g: 0.222, b: 0.056109887, a: 1}
     - _EmissionColor: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
   m_BuildTextureStacks: []

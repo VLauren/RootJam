@@ -9,7 +9,7 @@ public class RJPlanet : MonoBehaviour
 
     Material StartMaterial;
 
-    void Start()
+    void Awake()
     {
         Instance = this;
         StartMaterial = GetComponent<Renderer>().material;

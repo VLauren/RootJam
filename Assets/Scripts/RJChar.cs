@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RJChar : MonoBehaviour
 {
+    public static RJChar Instance { get; private set; }
+
     CharacterController CharacterController;
 
     public int hVelocity = 8;
@@ -17,6 +19,11 @@ public class RJChar : MonoBehaviour
     Vector3 AnglePos;
 
     public Transform Dummy;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     void Start()
     {
@@ -48,6 +55,7 @@ public class RJChar : MonoBehaviour
 
     void Movement()
     {
+        /*
         // Magia, no pregunteis
         Dummy.transform.parent.rotation = Quaternion.Euler(
             Mathf.Clamp(Dummy.transform.parent.rotation.eulerAngles.x - Time.deltaTime * vVelocity * Input.GetAxisRaw("Vertical"), 290, 304),
@@ -56,5 +64,7 @@ public class RJChar : MonoBehaviour
 
         transform.position = Dummy.transform.position;
         transform.rotation = Dummy.transform.rotation;
+        */
+        RJUtil.SphereMove(transform, new Vector3(Time.deltaTime * vVelocity * Input.GetAxisRaw("Vertical"), Time.deltaTime * hVelocity * Input.GetAxisRaw("Horizontal"), 0));
     }
 }

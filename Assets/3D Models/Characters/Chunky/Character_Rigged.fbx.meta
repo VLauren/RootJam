@@ -3,7 +3,37 @@ guid: eec813a71172f674db6e2ab3eb034069
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Face
+    second: {fileID: 2100000, guid: 958136dff9a00ea4e9769ebd010978c0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Madera
+    second: {fileID: 2100000, guid: e1f1b3a1157040845920a25d9b6c4f6b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Ojos
+    second: {fileID: 2100000, guid: 949b577a167d7954b818194c8ee369f4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Pupila
+    second: {fileID: 2100000, guid: 872055f67a832b3428ebf3bd1e879893, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "M_Pu\xF1os"
+    second: {fileID: 2100000, guid: 812f025e85c4725448fa1651e0abbc33, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Raices
+    second: {fileID: 2100000, guid: aefb4361a5d84dc4a95213d01984e7ac, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
