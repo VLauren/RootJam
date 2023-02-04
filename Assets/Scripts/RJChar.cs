@@ -95,7 +95,6 @@ public class RJChar : MonoBehaviour
     {
         //cogemos los puntos de recursos, sumamos a los puntos del jugador por cada vez que pulse la tecla, y eso se comprueba con checkcurrent para cuando suba de nivel
 
-
         RJGame.currentGatherPoints += RJGame.resource1Points;
         print("currentGatherPoints " + RJGame.currentGatherPoints);
         if (RJGame.currentGatherPoints == RJGame.resource1Size)
@@ -123,8 +122,6 @@ public class RJChar : MonoBehaviour
         if(CurrentLevel < 1 && RJGame.CheckCurrentLevel() == 1)
         {
             // fase 2
-            print("EVOLUSIONA");
-
             CurrentLevel = 1;
 
             transform.Find("Model/Lvl1").gameObject.SetActive(false);
