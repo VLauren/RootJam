@@ -238,7 +238,7 @@ public class RJChar : MonoBehaviour
     {
         AttackTimeRemaining = AttackDuration;
 
-        // TODO animation attack trigger
+        Lvl2Animator.SetTrigger("Attack");
 
         yield return new WaitForSeconds(0.1f);
 
