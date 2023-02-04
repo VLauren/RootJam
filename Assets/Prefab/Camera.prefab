@@ -281,18 +281,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40323002e2891364ba9553e463e30c12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SmoothTime: 0.3
   Fase1MovingAngle: -134.4
-  Fase1MovingTilt: -15.5
-  Fase1MovingDistance: 44.4
-  Fase1RootedAngle: -99.1
-  Fase1RootedTilt: -25.1
-  Fase1RootedDistance: 41.6
-  Fase2MovingAngle: -121
-  Fase2MovingTilt: -21
-  Fase2MovingDistance: 0
-  Fase2RootedAngle: -121
-  Fase2RootedTilt: -21
-  Fase2RootedDistance: 0
+  Fase1MovingTilt: -17
+  Fase1MovingDistance: 40.85
+  Fase1RootedAngle: -99.3
+  Fase1RootedTilt: -36.7
+  Fase1RootedDistance: 32.2
+  Fase2MovingAngle: -133.9
+  Fase2MovingTilt: -13.5
+  Fase2MovingDistance: 47.9
+  Fase2RootedAngle: -99
+  Fase2RootedTilt: -21.3
+  Fase2RootedDistance: 46.5
   Fase3MovingAngle: -121
   Fase3MovingTilt: -21
   Fase3MovingDistance: 0

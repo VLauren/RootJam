@@ -52,6 +52,19 @@ public class RJCam : MonoBehaviour
         Vector3 newLocalEulerAngles = new Vector3(RJChar.Instance.canMove ? Fase1MovingTilt : Fase1RootedTilt, -180, 0);
         float newDistance = RJChar.Instance.canMove ? Fase1MovingDistance : Fase1RootedDistance;
 
+        if (RJChar.Instance.CurrentLevel == 1)
+        {
+            newParentEuler = new Vector3(RJChar.Instance.canMove ? Fase2MovingAngle : Fase2RootedAngle, newParentRotY, 0);
+            newLocalEulerAngles = new Vector3(RJChar.Instance.canMove ? Fase2MovingTilt : Fase2RootedTilt, -180, 0);
+            newDistance = RJChar.Instance.canMove ? Fase2MovingDistance : Fase2RootedDistance;
+        }
+        else if (RJChar.Instance.CurrentLevel == 2)
+        {
+            newParentEuler = new Vector3(RJChar.Instance.canMove ? Fase3MovingAngle : Fase3RootedAngle, newParentRotY, 0);
+            newLocalEulerAngles = new Vector3(RJChar.Instance.canMove ? Fase3MovingTilt : Fase3RootedTilt, -180, 0);
+            newDistance = RJChar.Instance.canMove ? Fase3MovingDistance : Fase3RootedDistance;
+        }
+
 
         // transform.parent.eulerAngles = newParentEuler;
         // transform.parent.rotation = Quaternion.Euler(newParentEuler);

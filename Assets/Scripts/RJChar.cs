@@ -28,7 +28,7 @@ public class RJChar : MonoBehaviour
     Vector3 AnglePos;
     Quaternion TargetRotation;
 
-    int CurrentLevel = 0;
+    public int CurrentLevel { get; private set; }
 
     private void Awake()
     {
@@ -42,6 +42,7 @@ public class RJChar : MonoBehaviour
         AnglePos = transform.rotation.eulerAngles;
 
         CharacterController.enabled = false;
+        CurrentLevel = 0;
     }
 
     void Update()
