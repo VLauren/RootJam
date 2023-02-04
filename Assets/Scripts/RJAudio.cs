@@ -14,8 +14,8 @@ public class RJAudio : MonoBehaviour
 
     private void Start()
     {
-        AudioSource.SetIntVar("musicvar", 0);
-        AudioSource.Play("musica");
+        // AudioSource.SetIntVar("musicvar", 0);
+        // AudioSource.Play("musica");
 
         AudioSource.SetIntVar("sfxvar", 5);
         AudioSource.Play("sfx");
