@@ -10,9 +10,8 @@ public class RJCanvas : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        smashSliderFill = transform.Find("SliderMachaca").gameObject;
-        smashSliderFrame = transform.Find("PresionaBoton").gameObject;
-
+        // smashSliderFill = transform.Find("SliderMachaca").gameObject;
+        // smashSliderFrame = transform.Find("PresionaBoton").gameObject;
     }
 
     // Update is called once per frame

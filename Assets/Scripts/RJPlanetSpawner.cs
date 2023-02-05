@@ -79,6 +79,10 @@ public class RJPlanetSpawner : MonoBehaviour
         // print(RemainingTime);
 
 
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
 
     }
 
