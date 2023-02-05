@@ -23,7 +23,7 @@ public class RJGoblin : MonoBehaviour
     {
         StartCoroutine(Shooting()); // Anyways I started blasting
 
-        Anim = transform.Find("Model").GetComponent<Animator>();
+        Anim = transform.Find("Model/Goblin").GetComponent<Animator>();
     }
 
     void Update()
@@ -51,7 +51,7 @@ public class RJGoblin : MonoBehaviour
 
         if (Anim != null)
         {
-            // TODO animacion de mov
+            Anim.SetFloat("Speed", movZero ? 0 : 1);
         }
     }
 
@@ -64,15 +64,17 @@ public class RJGoblin : MonoBehaviour
         }
     }
 
+    public Transform SpawnPoint;
     IEnumerator Shoot()
     {
-        // Anim.SetTrigger("Attack");
+        Anim.SetTrigger("Attack");
         // print("pium");
 
         yield return new WaitForSeconds(0.3f);
 
         if (Projectile != null)
-            Instantiate(Projectile, transform.Find("ProjectileSpawnPoint").position, Quaternion.identity);
+            // Instantiate(Projectile, transform.Find("ProjectileSpawnPoint").position, Quaternion.identity);
+            Instantiate(Projectile, SpawnPoint.position, Quaternion.identity);
 
         RJAudio.AudioSource.SetIntVar("sfxvar", 4);
         RJAudio.AudioSource.Play("sfx");
@@ -82,6 +84,9 @@ public class RJGoblin : MonoBehaviour
 
     public void ApplyDamage(int damage)
     {
+        RJAudio.AudioSource.SetIntVar("sfxvar", 9);
+        RJAudio.AudioSource.Play("sfx");
+
         healthPoints -= damage;
         if (healthPoints <= 0)
         {

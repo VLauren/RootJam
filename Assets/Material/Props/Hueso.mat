@@ -101,14 +101,17 @@ Material:
     - _StencilComp: 0
     - _StencilFail: 0
     - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
     - _StencilZFail: 0
     - _UVSec: 0
+    - _UseUIAlphaClip: 0
     - _WriteMask: 255
     - _ZTest: 4
     - _ZWrite: 1
     m_Colors:
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
-    - _Color: {r: 0.6444799, g: 0.590619, b: 0.4910209, a: 1}
+    - _Color: {r: 0.6444798, g: 0.59061897, b: 0.49102074, a: 1}
     - _ColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
     - _ReflectColor: {r: 1, g: 1, b: 1, a: 0.5}

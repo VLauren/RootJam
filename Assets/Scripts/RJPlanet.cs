@@ -78,6 +78,8 @@ public class RJPlanet : MonoBehaviour
     void SpawnGoblin()
     {
         float yRot = RJChar.Instance.transform.parent.eulerAngles.y;
+        float eulerY = Random.value > 0.5f ? yRot - 17 : yRot + 17;
+        eulerY += Random.Range(-3f, 3f);
         Instantiate(GoblinPrefab, Vector3.zero, Quaternion.Euler(Random.Range(-70, -55), Random.Range(yRot - 20, yRot + 20), 0));
     }
 
