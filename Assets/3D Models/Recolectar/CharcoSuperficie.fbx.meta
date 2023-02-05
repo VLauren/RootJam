@@ -3,7 +3,12 @@ guid: fa539683988eea74a94ac6e794122ba0
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Charco
+    second: {fileID: 2100000, guid: 5bab154abf0c70045b68e232eae9fdc7, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
