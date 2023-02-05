@@ -23,7 +23,7 @@ public class RJGoblin : MonoBehaviour
     {
         StartCoroutine(Shooting()); // Anyways I started blasting
 
-        Anim = transform.Find("Model").GetComponent<Animator>();
+        Anim = transform.Find("Model/Goblin").GetComponent<Animator>();
     }
 
     void Update()
@@ -51,7 +51,7 @@ public class RJGoblin : MonoBehaviour
 
         if (Anim != null)
         {
-            // TODO animacion de mov
+            Anim.SetFloat("Speed", dir.magnitude);
         }
     }
 
@@ -66,7 +66,7 @@ public class RJGoblin : MonoBehaviour
 
     IEnumerator Shoot()
     {
-        // Anim.SetTrigger("Attack");
+        Anim.SetTrigger("Attack");
         // print("pium");
 
         yield return new WaitForSeconds(0.3f);
