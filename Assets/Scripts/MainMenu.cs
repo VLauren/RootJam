@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
         AudioSource = GetComponent<KLAudioSource>();
         AudioSource.SetIntVar("musicvar", 0);
         AudioSource.Play("musica");
+        RJPlanetSpawner.gameScore = 0;
     }
 
     void Update()
