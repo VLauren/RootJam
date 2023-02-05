@@ -60,16 +60,30 @@ public class RJPlanetSpawner : MonoBehaviour
             StartCoroutine(NewPlanetRoutine());
 
         RemainingTime -= Time.deltaTime;
-        if (RemainingTime <= 0)
+        if (RemainingTime <= 0 && !gameover)
         {
-            SceneManager.LoadScene("EscenaFin", LoadSceneMode.Single);
-            print("0 segundos");
-
-
-
+            gameover = true;
+            StartCoroutine(GameOver());
         }
         // else
         // print(RemainingTime);
+    }
+
+    bool gameover = false;
+    public IEnumerator GameOver()
+    {
+        // TODO Anim muerte jug
+        CurrentPlayer.transform.GetChild(0).GetComponent<RJChar>().enabled = false;
+        var camScr = Camera.main.GetComponent<RJCam>();
+        camScr.enabled = false;
+
+        // Audio pierde
+        RJAudio.AudioSource.SetIntVar("sfxvar", 12);
+        RJAudio.AudioSource.Play("sfx");
+
+        yield return new WaitForSeconds(3);
+
+        SceneManager.LoadScene("EscenaFin", LoadSceneMode.Single);
     }
 
     public IEnumerator NewPlanetRoutine()
@@ -79,6 +93,10 @@ public class RJPlanetSpawner : MonoBehaviour
         CurrentPlayer.transform.GetChild(0).GetComponent<RJChar>().enabled = false;
         var camScr = Camera.main.GetComponent<RJCam>();
         camScr.enabled = false;
+
+        // Audio planeta explota
+        RJAudio.AudioSource.SetIntVar("sfxvar", 15);
+        RJAudio.AudioSource.Play("sfx");
 
         while (camScr.transform.localEulerAngles.x > -30 + 360)
         {

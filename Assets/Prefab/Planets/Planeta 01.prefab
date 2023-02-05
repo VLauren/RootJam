@@ -172,7 +172,7 @@ MonoBehaviour:
   Resource2Prefab: {fileID: 3131106443470712286, guid: a5290d382d7b1b64db020ee5eeecfd28, type: 3}
   Resource3Prefab: {fileID: 1434127397875779010, guid: ada90828671c4594f97312ba85449781, type: 3}
   BackgroundColor: {r: 0, g: 0, b: 0, a: 0}
-  GoblinSpawnRate: 0.2
+  GoblinSpawnRate: 0.1
   DebugGoblinsToSpawn: 0
 --- !u!1 &8697070732167130284
 GameObject:

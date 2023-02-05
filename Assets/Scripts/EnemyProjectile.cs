@@ -31,6 +31,9 @@ public class EnemyProjectile : MonoBehaviour
             // Al pegar quito recursos
             RJGame.AddGrowthPoints(-damage);
 
+            RJAudio.AudioSource.SetIntVar("sfxvar", 5);
+            RJAudio.AudioSource.Play("sfx");
+
             Destroy(gameObject);
         }
     }

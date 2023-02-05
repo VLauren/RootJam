@@ -56,6 +56,10 @@ public class RJChar : MonoBehaviour
 
         CharacterController.enabled = false;
         CurrentLevel = 0;
+
+        // sonido inicio juego
+        RJAudio.AudioSource.SetIntVar("sfxvar", 11);
+        RJAudio.AudioSource.Play("sfx");
     }
 
     void Update()
@@ -141,6 +145,26 @@ public class RJChar : MonoBehaviour
             canGather = !canGather;
 
             RJVisualFX.Effect(2, transform.position);
+
+            // Audio plantarse
+            if(!canMove)
+            {
+                if(CurrentLevel == 0)
+                {
+                    RJAudio.AudioSource.SetIntVar("sfxvar", 13);
+                    RJAudio.AudioSource.Play("sfx");
+                }
+                if(CurrentLevel == 1)
+                {
+                    RJAudio.AudioSource.SetIntVar("sfxvar", 14);
+                    RJAudio.AudioSource.Play("sfx");
+                }
+                if(CurrentLevel == 2)
+                {
+                    RJAudio.AudioSource.SetIntVar("sfxvar", 15);
+                    RJAudio.AudioSource.Play("sfx");
+                }
+            }
         }
 
         //machacar el botón para para que el chonko recoja recursos
@@ -208,6 +232,9 @@ public class RJChar : MonoBehaviour
         RJGame.currentGatherPoints += resourcePoints;
         print("currentGatherPoints " + RJGame.currentGatherPoints);
 
+        RJAudio.AudioSource.SetIntVar("sfxvar", 8);
+        RJAudio.AudioSource.Play("sfx");
+
         if (RJGame.currentGatherPoints == resourceSize)
         {
             RJGame.growthPoints += resourceSize;
@@ -220,7 +247,8 @@ public class RJChar : MonoBehaviour
             RJCam.Instance.MovementActive = canMove;
             Destroy(RJChar.currentResource.gameObject);
 
-            print("PUNTASO Y FUERA");
+            RJAudio.AudioSource.SetIntVar("sfxvar", 10);
+            RJAudio.AudioSource.Play("sfx");
         }
 
         //RJGame.playerResources += RJGame.growthPoints;
@@ -304,6 +332,9 @@ public class RJChar : MonoBehaviour
 
         yield return new WaitForSeconds(0.1f);
 
+        RJAudio.AudioSource.SetIntVar("sfxvar", 6);
+        RJAudio.AudioSource.Play("sfx");
+
         // Vector3 FXPos = transform.Find("AtkFXPos").position;
         // var fx = WJVisualFX.Effect(2, FXPos, Quaternion.Euler(0, -90, 0) * transform.rotation);
         // fx.transform.parent = transform;
@@ -341,6 +372,9 @@ public class RJChar : MonoBehaviour
         Lvl3Animator.SetTrigger("Attack");
 
         yield return new WaitForSeconds(0.1f);
+
+        RJAudio.AudioSource.SetIntVar("sfxvar", 7);
+        RJAudio.AudioSource.Play("sfx");
 
         // Vector3 FXPos = transform.Find("AtkFXPos").position;
         // var fx = WJVisualFX.Effect(2, FXPos, Quaternion.Euler(0, -90, 0) * transform.rotation);

@@ -51,7 +51,7 @@ public class RJGoblin : MonoBehaviour
 
         if (Anim != null)
         {
-            Anim.SetFloat("Speed", dir.magnitude);
+            Anim.SetFloat("Speed", movZero ? 0 : 1);
         }
     }
 
@@ -64,6 +64,7 @@ public class RJGoblin : MonoBehaviour
         }
     }
 
+    public Transform SpawnPoint;
     IEnumerator Shoot()
     {
         Anim.SetTrigger("Attack");
@@ -72,7 +73,8 @@ public class RJGoblin : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
 
         if (Projectile != null)
-            Instantiate(Projectile, transform.Find("ProjectileSpawnPoint").position, Quaternion.identity);
+            // Instantiate(Projectile, transform.Find("ProjectileSpawnPoint").position, Quaternion.identity);
+            Instantiate(Projectile, SpawnPoint.position, Quaternion.identity);
 
         RJAudio.AudioSource.SetIntVar("sfxvar", 4);
         RJAudio.AudioSource.Play("sfx");
@@ -82,6 +84,9 @@ public class RJGoblin : MonoBehaviour
 
     public void ApplyDamage(int damage)
     {
+        RJAudio.AudioSource.SetIntVar("sfxvar", 9);
+        RJAudio.AudioSource.Play("sfx");
+
         healthPoints -= damage;
         if (healthPoints <= 0)
         {
