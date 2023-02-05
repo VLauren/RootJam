@@ -64,7 +64,7 @@ public class RJPlanetSpawner : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.N))
+        if (Input.GetKeyDown(KeyCode.N) && Input.GetKey(KeyCode.LeftShift))
             StartCoroutine(NewPlanetRoutine());
 
         RemainingTime -= Time.deltaTime;
