@@ -428,6 +428,10 @@ MonoBehaviour:
   - {fileID: 1078506033425764242, guid: 6c5587e24a2f40948b5673375efa9ede, type: 3}
   - {fileID: 1078506033425764242, guid: 0fb7ffefbf010ce4b80769ba8ad95b60, type: 3}
   - {fileID: 3389064388641629362, guid: 4f780e68bdad2c245a1de798f3f2987e, type: 3}
+  - {fileID: 1078506033425764242, guid: 485696bad19431941b73cb3be233ed12, type: 3}
+  - {fileID: 1078506033425764242, guid: 9735c28763290f147b4771d0d7daaa78, type: 3}
+  - {fileID: 1078506033425764242, guid: de023465d7cbd334e9b808dcf716651e, type: 3}
+  - {fileID: 1078506033425764242, guid: 68e523bf13333ba46bc3d37ebef93e75, type: 3}
 --- !u!224 &1573913580 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 18295626902861301, guid: 7b5fca4a80725c54d884eae73daa8a8b, type: 3}

@@ -35,6 +35,9 @@ public class RJPlanetSpawner : MonoBehaviour
         RJAudio.AudioSource.Play("sfx");
 
         // RJAudio.AudioSource.SetIntVar("crushvar", 1);
+        gameScore += RJGame.growthPoints;
+
+        RJVisualFX.Effect(2, CurrentPlayer.transform.position);
     }
 
     void SpawnPlanet(int index)
@@ -156,6 +159,8 @@ public class RJPlanetSpawner : MonoBehaviour
         // sonido inicio juego
         RJAudio.AudioSource.SetIntVar("sfxvar", 11);
         RJAudio.AudioSource.Play("sfx");
+
+        RJVisualFX.Effect(2, CurrentPlayer.transform.position);
     }
 
 }
