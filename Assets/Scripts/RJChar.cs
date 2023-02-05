@@ -9,8 +9,8 @@ public class RJChar : MonoBehaviour
 {
     public static RJChar Instance { get; private set; }
 
-    public static RJResource currentResource = null;
-    public static bool canGather = false;
+    public RJResource currentResource = null;
+    public bool canGather = false;
 
     CharacterController CharacterController;
 
@@ -254,16 +254,15 @@ public class RJChar : MonoBehaviour
 
             if (RJGame.resourceType == 0)
             {
-                RJPlanetSpawner.gameScore += 10;
-
+                RJPlanetSpawner.gameScore += 100;
             }
             else if (RJGame.resourceType == 1)
             {
-                RJPlanetSpawner.gameScore += 15;
+                RJPlanetSpawner.gameScore += 250;
             }
             else if (RJGame.resourceType == 2)
             {
-                RJPlanetSpawner.gameScore += 20;
+                RJPlanetSpawner.gameScore += 650;
             }
 
             //resetea todo
@@ -272,7 +271,7 @@ public class RJChar : MonoBehaviour
             canMove = !canMove;
             RJPlanet.ChangeMaterial(!canMove);
             RJCam.Instance.MovementActive = canMove;
-            Destroy(RJChar.currentResource.gameObject);
+            Destroy(RJChar.Instance.currentResource.gameObject);
 
             RJAudio.AudioSource.SetIntVar("sfxvar", 10);
             RJAudio.AudioSource.Play("sfx");

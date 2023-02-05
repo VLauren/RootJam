@@ -17,7 +17,7 @@ public class RJResource : MonoBehaviour
 
             if (RJChar.Instance.CurrentLevel >= resourceLevel)
             {
-                RJChar.currentResource = this;
+                RJChar.Instance.currentResource = this;
 
                 RJGame.resourceType = resourceLevel;
             }
@@ -30,13 +30,13 @@ public class RJResource : MonoBehaviour
         if (col.gameObject == RJChar.Instance.gameObject)
         {
 
-            RJChar.currentResource = null;
+            RJChar.Instance.currentResource = null;
         }
     }
 
     void Update()
     {
-        bool show = RJChar.currentResource == this && !RJChar.Instance.canMove;
+        bool show = RJChar.Instance.currentResource == this && !RJChar.Instance.canMove;
         foreach (Transform child in transform.GetChild(0))
         {
             child.gameObject.SetActive(show);

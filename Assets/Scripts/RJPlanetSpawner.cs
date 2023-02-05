@@ -122,10 +122,22 @@ public class RJPlanetSpawner : MonoBehaviour
 
         RJVisualFX.Effect(9, Vector3.zero);
 
+        GameObject seed = camScr.transform.Find("Seed").gameObject;
+        seed.SetActive(true);
+        seed.transform.localPosition = new Vector3(0, -2, 13.2f);
+        seed.transform.localRotation = Quaternion.Euler(89, 0, -180);
+
         while (camScr.transform.localEulerAngles.x > -30 + 360)
         {
             camScr.transform.localEulerAngles = new Vector3(camScr.transform.localEulerAngles.x - Time.deltaTime * 3.5f, camScr.transform.localEulerAngles.y, 0);
-            camScr.transform.localPosition = new Vector3(0, 0, camScr.transform.localPosition.z + Time.deltaTime * 50);
+            camScr.transform.localPosition = new Vector3(0, 0, camScr.transform.localPosition.z + Time.deltaTime * 60);
+
+            Debug.Log(camScr.transform.localPosition.z);
+            // Seed movement
+            seed.transform.localPosition = Vector3.MoveTowards(seed.transform.localPosition, new Vector3(0, 0, 13.2f), Time.deltaTime * 10);
+            if (camScr.transform.localPosition.z > 130)
+                seed.transform.localRotation = Quaternion.RotateTowards(seed.transform.localRotation, Quaternion.Euler(-86, -90, -269.9f), Time.deltaTime * 80);
+
             yield return null;
         }
 
@@ -154,10 +166,14 @@ public class RJPlanetSpawner : MonoBehaviour
                 Mathf.MoveTowards(Camera.main.backgroundColor.b, CurrentPlanet.GetComponent<RJPlanet>().BackgroundColor.b, Time.deltaTime)
                 );
 
+            seed.transform.localPosition = Vector3.MoveTowards(seed.transform.localPosition, new Vector3(0, -3, 13.2f), Time.deltaTime * 10);
+
             // Vector3.MoveTowards(Camera.main.backgroundColor, CurrentPlanet.GetComponent<RJPlanet>().BackgroundColor, Time.deltaTime * 10);
 
             yield return null;
         }
+
+        seed.SetActive(false);
 
         yield return new WaitForSeconds(1);
 

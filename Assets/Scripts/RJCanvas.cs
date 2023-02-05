@@ -17,7 +17,7 @@ public class RJCanvas : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (RJChar.canGather)
+        if (RJChar.Instance.canGather)
         {
             smashSliderFill.SetActive(true);
             smashSliderFrame.SetActive(true);
