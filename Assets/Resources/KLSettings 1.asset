@@ -25,7 +25,7 @@ MonoBehaviour:
       description: 
       is3D: 0
       max3DDistance: 2
-      isLoop: 1
+      isLoop: 0
       channelId: 0
       sourceContract: 2
     - name: sfx
@@ -37,20 +37,52 @@ MonoBehaviour:
       sourceContract: 2
     variables:
     - name: sfxvar
-      defaultValue: 10
+      defaultValue: 17
       isGlobal: 0
       source: 2
       content: 0
       min: 0
-      max: 16
+      max: 17
       sourceContract: 2
     - name: musicvar
-      defaultValue: 0
+      defaultValue: 1.1
       isGlobal: 0
       source: 2
       content: 0
       min: 0
       max: 3
+      sourceContract: 2
+    - name: littlevolume
+      defaultValue: 1
+      isGlobal: 0
+      source: 2
+      content: 0
+      min: 0
+      max: 1
+      sourceContract: 2
+    - name: mediumvolume
+      defaultValue: 1
+      isGlobal: 0
+      source: 2
+      content: 0
+      min: 0
+      max: 1
+      sourceContract: 2
+    - name: bigvolume
+      defaultValue: 1
+      isGlobal: 0
+      source: 2
+      content: 0
+      min: 0
+      max: 1
+      sourceContract: 2
+    - name: crushvar
+      defaultValue: 0
+      isGlobal: 1
+      source: 2
+      content: 0
+      min: 0
+      max: 20
       sourceContract: 2
     soundbank_files: []
     channels: []
