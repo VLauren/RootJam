@@ -354,7 +354,7 @@ public class RJChar : MonoBehaviour
         // var fx = WJVisualFX.Effect(2, FXPos, Quaternion.Euler(0, -90, 0) * transform.rotation);
         // fx.transform.parent = transform;
 
-        RJCam.CameraShake(0.05f, 0.15f);
+        RJCam.CameraShake(0.10f, 0.15f);
 
         yield return new WaitForSeconds(0.1f);
 
@@ -382,7 +382,7 @@ public class RJChar : MonoBehaviour
 
     IEnumerator Level2Attack()
     {
-        AttackTimeRemaining = AttackDuration;
+        AttackTimeRemaining = AttackDuration + 0.2f;
 
         Lvl3Animator.SetTrigger("Attack");
 
@@ -395,11 +395,11 @@ public class RJChar : MonoBehaviour
         // var fx = WJVisualFX.Effect(2, FXPos, Quaternion.Euler(0, -90, 0) * transform.rotation);
         // fx.transform.parent = transform;
 
-        // TODO camera shake
-
         yield return new WaitForSeconds(0.1f);
 
         Attack2Area.gameObject.SetActive(true);
+
+        RJCam.CameraShake(0.25f, 0.25f);
     }
 
     // IEnumerator DeductSecond()
