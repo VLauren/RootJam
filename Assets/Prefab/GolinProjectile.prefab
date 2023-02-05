@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 869850486710705102}
   - component: {fileID: 4782066158916051972}
   - component: {fileID: 6391761994725535896}
-  - component: {fileID: 5413665500951173074}
+  - component: {fileID: 4787967832334288460}
   m_Layer: 0
   m_Name: Projectil
   m_TagString: Untagged
@@ -165,7 +165,7 @@ Transform:
   - {fileID: 794879431366565608}
   m_Father: {fileID: 1879693305676368480}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -64.28254, y: 366.17346, z: 2.781643}
+  m_LocalEulerAnglesHint: {x: 62.755, y: 335.296, z: -165.29472}
 --- !u!33 &869850486710705102
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -229,7 +229,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.50000024
   m_Center: {x: -0.00000023841858, y: -0.0000019073486, z: 0.000001907349}
---- !u!111 &5413665500951173074
+--- !u!111 &4787967832334288460
 Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -238,9 +238,9 @@ Animation:
   m_GameObject: {fileID: 4506323042626423639}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: d9d9e358db986204fa71ac76be5a479b, type: 2}
+  m_Animation: {fileID: 7400000, guid: 308324194805c8f4ab90694a84aa65f5, type: 2}
   m_Animations:
-  - {fileID: 7400000, guid: d9d9e358db986204fa71ac76be5a479b, type: 2}
+  - {fileID: 7400000, guid: 308324194805c8f4ab90694a84aa65f5, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
