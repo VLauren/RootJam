@@ -13,9 +13,10 @@ public class RJPlanetSpawner : MonoBehaviour
 
     public float RemainingTime { get; private set; }
 
+
     private void Awake()
     {
-        RemainingTime = 180;
+        RemainingTime = 20;
     }
 
     void Start()
@@ -63,9 +64,12 @@ public class RJPlanetSpawner : MonoBehaviour
         {
             SceneManager.LoadScene("EscenaFin", LoadSceneMode.Single);
             print("0 segundos");
+
+
+
         }
         // else
-            // print(RemainingTime);
+        // print(RemainingTime);
     }
 
     public IEnumerator NewPlanetRoutine()
@@ -76,7 +80,7 @@ public class RJPlanetSpawner : MonoBehaviour
         var camScr = Camera.main.GetComponent<RJCam>();
         camScr.enabled = false;
 
-        while(camScr.transform.localEulerAngles.x > -30 + 360)
+        while (camScr.transform.localEulerAngles.x > -30 + 360)
         {
             camScr.transform.localEulerAngles = new Vector3(camScr.transform.localEulerAngles.x - Time.deltaTime * 5, camScr.transform.localEulerAngles.y, 0);
             camScr.transform.localPosition = new Vector3(0, 0, camScr.transform.localPosition.z + Time.deltaTime * 50);
@@ -85,7 +89,7 @@ public class RJPlanetSpawner : MonoBehaviour
 
         yield return null;
 
-        SpawnPlanet(Random.Range(1,4));
+        SpawnPlanet(Random.Range(1, 4));
         CurrentPlayer.transform.eulerAngles = new Vector3(-59, camScr.transform.parent.eulerAngles.y - 180, 0);
 
         yield return null;
@@ -95,7 +99,7 @@ public class RJPlanetSpawner : MonoBehaviour
 
         yield return null;
 
-        while(camScr.transform.localEulerAngles.x < -5 + 360)
+        while (camScr.transform.localEulerAngles.x < -5 + 360)
         {
             camScr.transform.localEulerAngles = new Vector3(camScr.transform.localEulerAngles.x + Time.deltaTime * 30, camScr.transform.localEulerAngles.y, 0);
 
@@ -104,8 +108,8 @@ public class RJPlanetSpawner : MonoBehaviour
                 Mathf.MoveTowards(Camera.main.backgroundColor.g, CurrentPlanet.GetComponent<RJPlanet>().BackgroundColor.g, Time.deltaTime),
                 Mathf.MoveTowards(Camera.main.backgroundColor.b, CurrentPlanet.GetComponent<RJPlanet>().BackgroundColor.b, Time.deltaTime)
                 );
-                
-                // Vector3.MoveTowards(Camera.main.backgroundColor, CurrentPlanet.GetComponent<RJPlanet>().BackgroundColor, Time.deltaTime * 10);
+
+            // Vector3.MoveTowards(Camera.main.backgroundColor, CurrentPlanet.GetComponent<RJPlanet>().BackgroundColor, Time.deltaTime * 10);
 
             yield return null;
         }
