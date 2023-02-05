@@ -68,11 +68,8 @@ public class RJPlanetSpawner : MonoBehaviour
 
 
         }
-        else
-            print(RemainingTime);
-
-
-
+        // else
+        // print(RemainingTime);
     }
 
     public IEnumerator NewPlanetRoutine()
