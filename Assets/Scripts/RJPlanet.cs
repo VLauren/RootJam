@@ -26,6 +26,10 @@ public class RJPlanet : MonoBehaviour
     // int seconds = 50;
     // bool deductingTime;
 
+
+
+
+
     void Awake()
     {
         Instance = this;
@@ -43,13 +47,7 @@ public class RJPlanet : MonoBehaviour
 
     private void Update()
     {
-        /*
-        if (!deductingTime)
-        {
-            deductingTime = true;
-            StartCoroutine(DeductSecond());
-        }
-        */
+
     }
 
     public int DebugGoblinsToSpawn;
