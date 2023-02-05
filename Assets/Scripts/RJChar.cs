@@ -224,13 +224,18 @@ public class RJChar : MonoBehaviour
         moveInput.Normalize();
 
         // Movimiento
-        RJUtil.SphereMove(transform, new Vector3(-Time.deltaTime * vVelocity * moveInput.z, Time.deltaTime * hVelocity * moveInput.x, 0));
+        // de -70 a -55
+        print(moveInput);
+        // if ((transform.parent.localRotation.eulerAngles.x < (-55 + 360) && moveInput.z => 0)
+            // &&
+            // transform.parent.localRotation.eulerAngles.x > (-70 + 360))
+            RJUtil.SphereMove(transform, new Vector3(-Time.deltaTime * vVelocity * moveInput.z, Time.deltaTime * hVelocity * moveInput.x, 0));
 
         // Orientacion del modelo
         if (moveInput != Vector3.zero)
         {
             TargetRotation = Quaternion.LookRotation(-moveInput, Vector3.up);
-            transform.Find("Model").localRotation = Quaternion.RotateTowards(transform.Find("Model").localRotation, TargetRotation, Time.deltaTime * 360);
+            transform.Find("Model").localRotation = Quaternion.RotateTowards(transform.Find("Model").localRotation, TargetRotation, Time.deltaTime * 500);
         }
 
         Lvl1Animator.SetFloat("Speed", moveInput.magnitude);
@@ -334,6 +339,7 @@ public class RJChar : MonoBehaviour
 
         // HACK btnes de debug
 
+        /*
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             RJGame.growthPoints = 1;
@@ -346,6 +352,7 @@ public class RJChar : MonoBehaviour
         {
             RJGame.growthPoints = 40;
         }
+        */
     }
 
 
