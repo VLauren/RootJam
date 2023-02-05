@@ -13,6 +13,8 @@ public class RJPlanetSpawner : MonoBehaviour
 
     public float RemainingTime { get; private set; }
 
+    public int gameScore;
+
 
     private void Awake()
     {

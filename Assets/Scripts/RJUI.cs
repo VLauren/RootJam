@@ -6,7 +6,11 @@ using UnityEngine.UI;
 
 public class RJUI : MonoBehaviour
 {
-    Slider scoreSlider;
+    public Slider scoreSlider;
+
+    public Text gameScore;
+
+    public Text gameTime;
 
     // Start is called before the first frame update
     void Start()
@@ -14,6 +18,10 @@ public class RJUI : MonoBehaviour
         scoreSlider = GetComponent<Slider>();
 
         scoreSlider.value = 0;
+
+        gameScore.text = "pruebita";
+        gameTime.text = "pruebita";
+        print("aaaaaaaaaaaaaaa");
     }
 
     // Update is called once per frame
