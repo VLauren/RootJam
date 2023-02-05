@@ -13,6 +13,7 @@ public class RJPlanetSpawner : MonoBehaviour
     void Start()
     {
         SpawnPlanet();
+        Camera.main.backgroundColor = CurrentPlanet.GetComponent<RJPlanet>().BackgroundColor;
     }
 
     void SpawnPlanet()
@@ -37,14 +38,12 @@ public class RJPlanetSpawner : MonoBehaviour
         RJGame.ResetValues();
         CurrentPlanet = Instantiate(Planets[0], Vector3.zero, Quaternion.identity);
         CurrentPlayer = Instantiate(PlayerPrefab, Vector3.zero, Quaternion.Euler(-59, 0, 0));
-
-        Camera.main.backgroundColor = CurrentPlanet.GetComponent<RJPlanet>().BackgroundColor;
     }
 
     void Update()
     {
-        // if (Input.GetKeyDown(KeyCode.N))
-            // StartCoroutine(NewPlanetRoutine());
+        if (Input.GetKeyDown(KeyCode.N))
+            StartCoroutine(NewPlanetRoutine());
     }
 
     public IEnumerator NewPlanetRoutine()
@@ -78,6 +77,15 @@ public class RJPlanetSpawner : MonoBehaviour
         while(camScr.transform.localEulerAngles.x < -5 + 360)
         {
             camScr.transform.localEulerAngles = new Vector3(camScr.transform.localEulerAngles.x + Time.deltaTime * 30, camScr.transform.localEulerAngles.y, 0);
+
+            Camera.main.backgroundColor = new Color
+                (Mathf.MoveTowards(Camera.main.backgroundColor.r, CurrentPlanet.GetComponent<RJPlanet>().BackgroundColor.r, Time.deltaTime),
+                Mathf.MoveTowards(Camera.main.backgroundColor.g, CurrentPlanet.GetComponent<RJPlanet>().BackgroundColor.g, Time.deltaTime),
+                Mathf.MoveTowards(Camera.main.backgroundColor.b, CurrentPlanet.GetComponent<RJPlanet>().BackgroundColor.b, Time.deltaTime)
+                );
+                
+                // Vector3.MoveTowards(Camera.main.backgroundColor, CurrentPlanet.GetComponent<RJPlanet>().BackgroundColor, Time.deltaTime * 10);
+
             yield return null;
         }
 
