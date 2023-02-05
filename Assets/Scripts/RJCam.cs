@@ -39,6 +39,8 @@ public class RJCam : MonoBehaviour
     Vector3 parentSmoothVel;
     float distSmoothVel;
 
+    static Vector3 CameraShakeOffset;
+
     void Awake()
     {
         Instance = this;
@@ -82,5 +84,26 @@ public class RJCam : MonoBehaviour
 
         // transform.localPosition = new Vector3(0, 0, newDistance);
         transform.localPosition = new Vector3(0, 0, Mathf.SmoothDamp(transform.localPosition.z, newDistance, ref distSmoothVel, SmoothTime));
+
+        transform.position += CameraShakeOffset;
+    }
+
+    public static void CameraShake(float _strength, float _time)
+    {
+        Instance.StartCoroutine(Instance.CameraShakeRoutine(_strength, _time));
+    }
+
+    IEnumerator CameraShakeRoutine(float _strength, float _time)
+    {
+        float count = 0;
+        while (count < _time)
+        {
+            float currentStrength = ((_time - count) / _time) * _strength;
+            CameraShakeOffset = currentStrength * Random.onUnitSphere;
+
+            count += Time.unscaledDeltaTime;
+            yield return null;
+        }
+        CameraShakeOffset = Vector3.zero;
     }
 }
