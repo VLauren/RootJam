@@ -20,13 +20,14 @@ public class RJUI : MonoBehaviour
         scoreSlider.value = 0;
 
         gameScore.text = "pruebita";
-        gameTime.text = "pruebita";
-        print("aaaaaaaaaaaaaaa");
     }
 
     // Update is called once per frame
     void Update()
     {
         scoreSlider.value = (float)RJGame.growthPoints / (float)RJGame.level3BreakPoint;
+        gameTime.text = (int)RJPlanetSpawner.RemainingTime + " ";
+
+        gameScore.text = RJPlanetSpawner.gameScore + "";
     }
 }

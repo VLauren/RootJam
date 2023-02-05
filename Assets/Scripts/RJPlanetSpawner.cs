@@ -11,14 +11,14 @@ public class RJPlanetSpawner : MonoBehaviour
     GameObject CurrentPlanet;
     GameObject CurrentPlayer;
 
-    public float RemainingTime { get; private set; }
+    public static float RemainingTime { get; private set; }
 
-    public int gameScore;
+    public static int gameScore;
 
 
     private void Awake()
     {
-        RemainingTime = 180;
+        RemainingTime = 60;
     }
 
     void Start()
@@ -35,6 +35,7 @@ public class RJPlanetSpawner : MonoBehaviour
         RJAudio.AudioSource.Play("sfx");
 
         // RJAudio.AudioSource.SetIntVar("crushvar", 1);
+        gameScore += RJGame.growthPoints;
     }
 
     void SpawnPlanet(int index)
@@ -74,6 +75,9 @@ public class RJPlanetSpawner : MonoBehaviour
         }
         // else
         // print(RemainingTime);
+
+
+        gameScore = RJGame.growthPoints;
     }
 
     bool gameover = false;
