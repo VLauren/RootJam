@@ -392,7 +392,7 @@ public class RJChar : MonoBehaviour
 
         Attack1Area.gameObject.SetActive(true);
 
-        RJVisualFX.Effect(7, transform.position, transform.rotation);
+        RJVisualFX.Effect(7, transform.Find("Model/Lvl2").transform.position, transform.Find("Model/Lvl2").transform.rotation);
     }
 
     void AttackLevel2()
@@ -435,7 +435,7 @@ public class RJChar : MonoBehaviour
 
         RJCam.CameraShake(0.25f, 0.25f);
 
-        RJVisualFX.Effect(8, transform.position, transform.rotation);
+        RJVisualFX.Effect(8, transform.Find("Model/Lvl3").transform.position, transform.Find("Model/Lvl3").transform.rotation);
     }
 
     // IEnumerator DeductSecond()

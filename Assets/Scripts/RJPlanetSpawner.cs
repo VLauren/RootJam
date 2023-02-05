@@ -18,7 +18,7 @@ public class RJPlanetSpawner : MonoBehaviour
 
     private void Awake()
     {
-        RemainingTime = 60;
+        RemainingTime = 120;
     }
 
     void Start()
@@ -27,14 +27,12 @@ public class RJPlanetSpawner : MonoBehaviour
         Camera.main.backgroundColor = CurrentPlanet.GetComponent<RJPlanet>().BackgroundColor;
 
         RJAudio.AudioSource.SetIntVar("musicvar", 1);
-        // RJAudio.AudioSource.SetIntVar("littlevolume", 1);
         RJAudio.AudioSource.Play("musica");
 
         // sonido inicio juego
         RJAudio.AudioSource.SetIntVar("sfxvar", 11);
         RJAudio.AudioSource.Play("sfx");
 
-        // RJAudio.AudioSource.SetIntVar("crushvar", 1);
         gameScore += RJGame.growthPoints;
 
         RJVisualFX.Effect(2, CurrentPlayer.transform.position);
@@ -75,6 +73,9 @@ public class RJPlanetSpawner : MonoBehaviour
             gameover = true;
             StartCoroutine(GameOver());
         }
+
+        if(RemainingTime < 0)
+            RemainingTime = 0;
         // else
         // print(RemainingTime);
 
@@ -98,7 +99,11 @@ public class RJPlanetSpawner : MonoBehaviour
         RJAudio.AudioSource.SetIntVar("sfxvar", 12);
         RJAudio.AudioSource.Play("sfx");
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(0.5f);
+
+        CurrentPlayer.gameObject.SetActive(false);
+
+        yield return new WaitForSeconds(2);
 
         SceneManager.LoadScene("EscenaFin", LoadSceneMode.Single);
     }
@@ -115,10 +120,11 @@ public class RJPlanetSpawner : MonoBehaviour
         RJAudio.AudioSource.SetIntVar("sfxvar", 16);
         RJAudio.AudioSource.Play("sfx");
 
+        RJVisualFX.Effect(9, Vector3.zero);
 
         while (camScr.transform.localEulerAngles.x > -30 + 360)
         {
-            camScr.transform.localEulerAngles = new Vector3(camScr.transform.localEulerAngles.x - Time.deltaTime * 5, camScr.transform.localEulerAngles.y, 0);
+            camScr.transform.localEulerAngles = new Vector3(camScr.transform.localEulerAngles.x - Time.deltaTime * 3.5f, camScr.transform.localEulerAngles.y, 0);
             camScr.transform.localPosition = new Vector3(0, 0, camScr.transform.localPosition.z + Time.deltaTime * 50);
             yield return null;
         }
