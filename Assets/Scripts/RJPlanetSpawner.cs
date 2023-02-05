@@ -64,8 +64,8 @@ public class RJPlanetSpawner : MonoBehaviour
             SceneManager.LoadScene("EscenaFin", LoadSceneMode.Single);
             print("0 segundos");
         }
-        else
-            print(RemainingTime);
+        // else
+            // print(RemainingTime);
     }
 
     public IEnumerator NewPlanetRoutine()
