@@ -144,7 +144,6 @@ public class RJChar : MonoBehaviour
 
             canGather = !canGather;
 
-            RJVisualFX.Effect(2, transform.position);
 
             // Audio plantarse
             if(!canMove)
@@ -154,7 +153,7 @@ public class RJChar : MonoBehaviour
                     RJAudio.AudioSource.SetIntVar("sfxvar", 13);
                     RJAudio.AudioSource.Play("sfx");
                 }
-                if(CurrentLevel == 1)
+                if (CurrentLevel == 1)
                 {
                     RJAudio.AudioSource.SetIntVar("sfxvar", 14);
                     RJAudio.AudioSource.Play("sfx");
@@ -164,6 +163,20 @@ public class RJChar : MonoBehaviour
                     RJAudio.AudioSource.SetIntVar("sfxvar", 15);
                     RJAudio.AudioSource.Play("sfx");
                 }
+            }
+
+            // vfx
+            if (CurrentLevel == 0)
+            {
+                RJVisualFX.Effect(2, transform.position);
+            }
+            if (CurrentLevel == 1)
+            {
+                RJVisualFX.Effect(5, transform.position);
+            }
+            if (CurrentLevel == 2)
+            {
+                RJVisualFX.Effect(6, transform.position);
             }
         }
 
@@ -276,6 +289,8 @@ public class RJChar : MonoBehaviour
 
             RJAudio.AudioSource.SetIntVar("sfxvar", 11);
             RJAudio.AudioSource.Play("sfx");
+
+            RJVisualFX.Effect(5, transform.position);
         }
         if (CurrentLevel < 2 && RJGame.CheckCurrentLevel() == 2)
         {
@@ -294,6 +309,8 @@ public class RJChar : MonoBehaviour
 
             RJAudio.AudioSource.SetIntVar("sfxvar", 11);
             RJAudio.AudioSource.Play("sfx");
+
+            RJVisualFX.Effect(6, transform.position);
         }
         if (CurrentLevel < 3 && RJGame.CheckCurrentLevel() == 3)
         {
@@ -337,6 +354,7 @@ public class RJChar : MonoBehaviour
 
         if (Input.GetButtonDown("Fire2"))
             StartCoroutine(Level1Attack());
+
     }
 
     IEnumerator Level1Attack()
@@ -359,6 +377,8 @@ public class RJChar : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
 
         Attack1Area.gameObject.SetActive(true);
+
+        RJVisualFX.Effect(7, transform.position, transform.rotation);
     }
 
     void AttackLevel2()
@@ -400,6 +420,8 @@ public class RJChar : MonoBehaviour
         Attack2Area.gameObject.SetActive(true);
 
         RJCam.CameraShake(0.25f, 0.25f);
+
+        RJVisualFX.Effect(8, transform.position, transform.rotation);
     }
 
     // IEnumerator DeductSecond()
