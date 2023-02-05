@@ -56,6 +56,10 @@ public class RJChar : MonoBehaviour
 
         CharacterController.enabled = false;
         CurrentLevel = 0;
+
+        RJAudio.AudioSource.SetFloatVar("littlevolume", 1);
+        RJAudio.AudioSource.SetFloatVar("mediumvolume", 0);
+        RJAudio.AudioSource.SetFloatVar("bigvolume", 0);
     }
 
     void Update()
@@ -141,6 +145,26 @@ public class RJChar : MonoBehaviour
             canGather = !canGather;
 
             RJVisualFX.Effect(2, transform.position);
+
+            // Audio plantarse
+            if(!canMove)
+            {
+                if(CurrentLevel == 0)
+                {
+                    RJAudio.AudioSource.SetIntVar("sfxvar", 13);
+                    RJAudio.AudioSource.Play("sfx");
+                }
+                if(CurrentLevel == 1)
+                {
+                    RJAudio.AudioSource.SetIntVar("sfxvar", 14);
+                    RJAudio.AudioSource.Play("sfx");
+                }
+                if(CurrentLevel == 2)
+                {
+                    RJAudio.AudioSource.SetIntVar("sfxvar", 15);
+                    RJAudio.AudioSource.Play("sfx");
+                }
+            }
         }
 
         //machacar el botón para para que el chonko recoja recursos
@@ -208,6 +232,9 @@ public class RJChar : MonoBehaviour
         RJGame.currentGatherPoints += resourcePoints;
         print("currentGatherPoints " + RJGame.currentGatherPoints);
 
+        RJAudio.AudioSource.SetIntVar("sfxvar", 8);
+        RJAudio.AudioSource.Play("sfx");
+
         if (RJGame.currentGatherPoints == resourceSize)
         {
             RJGame.growthPoints += resourceSize;
@@ -220,7 +247,8 @@ public class RJChar : MonoBehaviour
             RJCam.Instance.MovementActive = canMove;
             Destroy(RJChar.currentResource.gameObject);
 
-            print("PUNTASO Y FUERA");
+            RJAudio.AudioSource.SetIntVar("sfxvar", 10);
+            RJAudio.AudioSource.Play("sfx");
         }
 
         //RJGame.playerResources += RJGame.growthPoints;
@@ -240,6 +268,14 @@ public class RJChar : MonoBehaviour
             transform.Find("Model/Lvl2").gameObject.SetActive(true);
 
             AttackTimeRemaining = 0.5f;
+
+
+            RJAudio.AudioSource.SetFloatVar("littlevolume", 1);
+            RJAudio.AudioSource.SetFloatVar("mediumvolume", 1);
+            RJAudio.AudioSource.SetFloatVar("bigvolume", 0);
+
+            RJAudio.AudioSource.SetIntVar("sfxvar", 11);
+            RJAudio.AudioSource.Play("sfx");
         }
         if (CurrentLevel < 2 && RJGame.CheckCurrentLevel() == 2)
         {
@@ -251,6 +287,13 @@ public class RJChar : MonoBehaviour
             transform.Find("Model/Lvl3").gameObject.SetActive(true);
 
             AttackTimeRemaining = 0.5f;
+
+            RJAudio.AudioSource.SetFloatVar("littlevolume", 1);
+            RJAudio.AudioSource.SetFloatVar("mediumvolume", 1);
+            RJAudio.AudioSource.SetFloatVar("bigvolume", 1);
+
+            RJAudio.AudioSource.SetIntVar("sfxvar", 11);
+            RJAudio.AudioSource.Play("sfx");
         }
         if (CurrentLevel < 3 && RJGame.CheckCurrentLevel() == 3)
         {
@@ -304,11 +347,14 @@ public class RJChar : MonoBehaviour
 
         yield return new WaitForSeconds(0.1f);
 
+        RJAudio.AudioSource.SetIntVar("sfxvar", 6);
+        RJAudio.AudioSource.Play("sfx");
+
         // Vector3 FXPos = transform.Find("AtkFXPos").position;
         // var fx = WJVisualFX.Effect(2, FXPos, Quaternion.Euler(0, -90, 0) * transform.rotation);
         // fx.transform.parent = transform;
 
-        // TODO camera shake
+        RJCam.CameraShake(0.10f, 0.15f);
 
         yield return new WaitForSeconds(0.1f);
 
@@ -336,21 +382,24 @@ public class RJChar : MonoBehaviour
 
     IEnumerator Level2Attack()
     {
-        AttackTimeRemaining = AttackDuration;
+        AttackTimeRemaining = AttackDuration + 0.2f;
 
         Lvl3Animator.SetTrigger("Attack");
 
         yield return new WaitForSeconds(0.1f);
 
+        RJAudio.AudioSource.SetIntVar("sfxvar", 7);
+        RJAudio.AudioSource.Play("sfx");
+
         // Vector3 FXPos = transform.Find("AtkFXPos").position;
         // var fx = WJVisualFX.Effect(2, FXPos, Quaternion.Euler(0, -90, 0) * transform.rotation);
         // fx.transform.parent = transform;
 
-        // TODO camera shake
-
         yield return new WaitForSeconds(0.1f);
 
         Attack2Area.gameObject.SetActive(true);
+
+        RJCam.CameraShake(0.25f, 0.25f);
     }
 
     // IEnumerator DeductSecond()

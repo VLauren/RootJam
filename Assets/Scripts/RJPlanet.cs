@@ -11,6 +11,8 @@ public class RJPlanet : MonoBehaviour
     [Header("Prefabs")]
     public GameObject GoblinPrefab;
     public GameObject Resource1Prefab;
+    public GameObject Resource2Prefab;
+    public GameObject Resource3Prefab;
 
     [Space()]
     public Color BackgroundColor;
@@ -21,8 +23,12 @@ public class RJPlanet : MonoBehaviour
 
     //lo del tiempo
     //public GameObject timeDisplay;
-    int seconds = 50;
-    bool deductingTime;
+    // int seconds = 50;
+    // bool deductingTime;
+
+
+
+
 
     void Awake()
     {
@@ -36,19 +42,12 @@ public class RJPlanet : MonoBehaviour
 
         InvokeRepeating("SpawnGoblin", 3, 1f / GoblinSpawnRate);
 
-        RJAudio.AudioSource.SetIntVar("musicvar", 0);
-        RJAudio.AudioSource.Play("musica");
-
 
     }
 
     private void Update()
     {
-        if (!deductingTime)
-        {
-            deductingTime = true;
-            StartCoroutine(DeductSecond());
-        }
+
     }
 
     public int DebugGoblinsToSpawn;
@@ -57,8 +56,13 @@ public class RJPlanet : MonoBehaviour
         for (int i = 0; i < DebugGoblinsToSpawn; i++)
             Instantiate(GoblinPrefab, Vector3.zero, Quaternion.Euler(Random.Range(-70, -55), Random.Range(-180, 180), 0));
 
-        for (int i = 0; i < 15; i++)
+        // Spawn recursos
+        for (int i = 0; i < 10; i++)
             Instantiate(Resource1Prefab, Vector3.zero, Quaternion.Euler(Random.Range(-70, -55), Random.Range(-180, 180), 0));
+        for (int i = 0; i < 10; i++)
+            Instantiate(Resource2Prefab, Vector3.zero, Quaternion.Euler(Random.Range(-70, -55), Random.Range(-180, 180), 0));
+        for (int i = 0; i < 10; i++)
+            Instantiate(Resource3Prefab, Vector3.zero, Quaternion.Euler(Random.Range(-70, -55), Random.Range(-180, 180), 0));
     }
 
     public static void ChangeMaterial(bool transparent)
@@ -74,9 +78,12 @@ public class RJPlanet : MonoBehaviour
     void SpawnGoblin()
     {
         float yRot = RJChar.Instance.transform.parent.eulerAngles.y;
+        float eulerY = Random.value > 0.5f ? yRot - 17 : yRot + 17;
+        eulerY += Random.Range(-3f, 3f);
         Instantiate(GoblinPrefab, Vector3.zero, Quaternion.Euler(Random.Range(-70, -55), Random.Range(yRot - 20, yRot + 20), 0));
     }
 
+    /*
     IEnumerator DeductSecond()
     {
         yield return new WaitForSeconds(1);
@@ -92,4 +99,5 @@ public class RJPlanet : MonoBehaviour
 
         print("segundos" + seconds);
     }
+    */
 }

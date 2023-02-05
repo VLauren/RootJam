@@ -23,6 +23,34 @@ namespace KrillAudio.Krilloud
 		public class Variables
 		{
 			/// <summary>
+			/// Variable: bigvolume
+			/// Range: [0 - 1]
+			/// Type: Local
+			/// </summary>
+			public const string bigvolume = "bigvolume";
+
+			/// <summary>
+			/// Variable: crushvar
+			/// Range: [0 - 20]
+			/// Type: Global
+			/// </summary>
+			public const string crushvar = "crushvar";
+
+			/// <summary>
+			/// Variable: littlevolume
+			/// Range: [0 - 1]
+			/// Type: Local
+			/// </summary>
+			public const string littlevolume = "littlevolume";
+
+			/// <summary>
+			/// Variable: mediumvolume
+			/// Range: [0 - 1]
+			/// Type: Local
+			/// </summary>
+			public const string mediumvolume = "mediumvolume";
+
+			/// <summary>
 			/// Variable: musicvar
 			/// Range: [0 - 3]
 			/// Type: Local
@@ -31,7 +59,7 @@ namespace KrillAudio.Krilloud
 
 			/// <summary>
 			/// Variable: sfxvar
-			/// Range: [0 - 16]
+			/// Range: [0 - 17]
 			/// Type: Local
 			/// </summary>
 			public const string sfxvar = "sfxvar";

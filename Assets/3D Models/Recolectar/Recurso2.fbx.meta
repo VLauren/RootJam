@@ -3,7 +3,12 @@ guid: 74347f831d5930d469ecace14a0a19a2
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Huesos
+    second: {fileID: 2100000, guid: eeb328c8e4835254c8a8f6a0fdf6f0ae, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
