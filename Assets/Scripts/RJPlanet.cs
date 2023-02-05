@@ -21,8 +21,8 @@ public class RJPlanet : MonoBehaviour
 
     //lo del tiempo
     //public GameObject timeDisplay;
-    int seconds = 50;
-    bool deductingTime;
+    // int seconds = 50;
+    // bool deductingTime;
 
     void Awake()
     {
@@ -36,19 +36,18 @@ public class RJPlanet : MonoBehaviour
 
         InvokeRepeating("SpawnGoblin", 3, 1f / GoblinSpawnRate);
 
-        RJAudio.AudioSource.SetIntVar("musicvar", 0);
-        RJAudio.AudioSource.Play("musica");
-
 
     }
 
     private void Update()
     {
+        /*
         if (!deductingTime)
         {
             deductingTime = true;
             StartCoroutine(DeductSecond());
         }
+        */
     }
 
     public int DebugGoblinsToSpawn;
@@ -77,6 +76,7 @@ public class RJPlanet : MonoBehaviour
         Instantiate(GoblinPrefab, Vector3.zero, Quaternion.Euler(Random.Range(-70, -55), Random.Range(yRot - 20, yRot + 20), 0));
     }
 
+    /*
     IEnumerator DeductSecond()
     {
         yield return new WaitForSeconds(1);
@@ -92,4 +92,5 @@ public class RJPlanet : MonoBehaviour
 
         print("segundos" + seconds);
     }
+    */
 }

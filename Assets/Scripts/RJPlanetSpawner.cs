@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RJPlanetSpawner : MonoBehaviour
 {
@@ -10,10 +11,22 @@ public class RJPlanetSpawner : MonoBehaviour
     GameObject CurrentPlanet;
     GameObject CurrentPlayer;
 
+    public float RemainingTime { get; private set; }
+
+    private void Awake()
+    {
+        RemainingTime = 180;
+    }
+
     void Start()
     {
         SpawnPlanet();
         Camera.main.backgroundColor = CurrentPlanet.GetComponent<RJPlanet>().BackgroundColor;
+
+        // RJAudio.AudioSource.SetIntVar("musicvar", 0);
+        // RJAudio.AudioSource.SetIntVar("littlevolume", 1);
+        // RJAudio.AudioSource.SetFloatVar("littlevolume", 1);
+        // RJAudio.AudioSource.Play("musica");
     }
 
     void SpawnPlanet()
@@ -44,16 +57,24 @@ public class RJPlanetSpawner : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.N))
             StartCoroutine(NewPlanetRoutine());
+
+        RemainingTime -= Time.deltaTime;
+        if (RemainingTime <= 0)
+        {
+            SceneManager.LoadScene("EscenaFin", LoadSceneMode.Single);
+            print("0 segundos");
+        }
+        else
+            print(RemainingTime);
     }
 
     public IEnumerator NewPlanetRoutine()
     {
+        RemainingTime += 30;
+
         CurrentPlayer.transform.GetChild(0).GetComponent<RJChar>().enabled = false;
         var camScr = Camera.main.GetComponent<RJCam>();
         camScr.enabled = false;
-
-        // Camera.main.backgroundColor
-        // -50
 
         while(camScr.transform.localEulerAngles.x > -30 + 360)
         {
