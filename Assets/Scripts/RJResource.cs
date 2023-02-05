@@ -18,6 +18,8 @@ public class RJResource : MonoBehaviour
             if (RJChar.Instance.CurrentLevel >= resourceLevel)
             {
                 RJChar.currentResource = this;
+
+                RJGame.resourceType = resourceLevel;
             }
 
         }

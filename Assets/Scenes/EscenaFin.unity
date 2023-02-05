@@ -474,8 +474,9 @@ GameObject:
   - component: {fileID: 1259179398}
   - component: {fileID: 1259179400}
   - component: {fileID: 1259179399}
+  - component: {fileID: 1259179401}
   m_Layer: 5
-  m_Name: Text (Legacy) Score
+  m_Name: TextScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -543,6 +544,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1259179397}
   m_CullTransparentMesh: 1
+--- !u!114 &1259179401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259179397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2aa7e44bee5a1b4c816b1694cad3719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finalScore: {fileID: 1259179399}
 --- !u!1 &1951976247
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,6 +673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2aa7e44bee5a1b4c816b1694cad3719, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  finalScore: {fileID: 0}
 --- !u!1 &2080675756
 GameObject:
   m_ObjectHideFlags: 0

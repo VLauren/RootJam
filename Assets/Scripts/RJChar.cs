@@ -147,19 +147,19 @@ public class RJChar : MonoBehaviour
             RJVisualFX.Effect(2, transform.position);
 
             // Audio plantarse
-            if(!canMove)
+            if (!canMove)
             {
-                if(CurrentLevel == 0)
+                if (CurrentLevel == 0)
                 {
                     RJAudio.AudioSource.SetIntVar("sfxvar", 13);
                     RJAudio.AudioSource.Play("sfx");
                 }
-                if(CurrentLevel == 1)
+                if (CurrentLevel == 1)
                 {
                     RJAudio.AudioSource.SetIntVar("sfxvar", 14);
                     RJAudio.AudioSource.Play("sfx");
                 }
-                if(CurrentLevel == 2)
+                if (CurrentLevel == 2)
                 {
                     RJAudio.AudioSource.SetIntVar("sfxvar", 15);
                     RJAudio.AudioSource.Play("sfx");
@@ -238,6 +238,20 @@ public class RJChar : MonoBehaviour
         if (RJGame.currentGatherPoints == resourceSize)
         {
             RJGame.growthPoints += resourceSize;
+
+            if (RJGame.resourceType == 0)
+            {
+                RJPlanetSpawner.gameScore += 10;
+
+            }
+            else if (RJGame.resourceType == 1)
+            {
+                RJPlanetSpawner.gameScore += 15;
+            }
+            else if (RJGame.resourceType == 2)
+            {
+                RJPlanetSpawner.gameScore += 20;
+            }
 
             //resetea todo
             RJGame.currentGatherPoints = 0;
