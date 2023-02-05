@@ -57,9 +57,9 @@ public class RJChar : MonoBehaviour
         CharacterController.enabled = false;
         CurrentLevel = 0;
 
-        // sonido inicio juego
-        RJAudio.AudioSource.SetIntVar("sfxvar", 11);
-        RJAudio.AudioSource.Play("sfx");
+        RJAudio.AudioSource.SetFloatVar("littlevolume", 1);
+        RJAudio.AudioSource.SetFloatVar("mediumvolume", 0);
+        RJAudio.AudioSource.SetFloatVar("bigvolume", 0);
     }
 
     void Update()
@@ -268,6 +268,14 @@ public class RJChar : MonoBehaviour
             transform.Find("Model/Lvl2").gameObject.SetActive(true);
 
             AttackTimeRemaining = 0.5f;
+
+
+            RJAudio.AudioSource.SetFloatVar("littlevolume", 1);
+            RJAudio.AudioSource.SetFloatVar("mediumvolume", 1);
+            RJAudio.AudioSource.SetFloatVar("bigvolume", 0);
+
+            RJAudio.AudioSource.SetIntVar("sfxvar", 11);
+            RJAudio.AudioSource.Play("sfx");
         }
         if (CurrentLevel < 2 && RJGame.CheckCurrentLevel() == 2)
         {
@@ -279,6 +287,13 @@ public class RJChar : MonoBehaviour
             transform.Find("Model/Lvl3").gameObject.SetActive(true);
 
             AttackTimeRemaining = 0.5f;
+
+            RJAudio.AudioSource.SetFloatVar("littlevolume", 1);
+            RJAudio.AudioSource.SetFloatVar("mediumvolume", 1);
+            RJAudio.AudioSource.SetFloatVar("bigvolume", 1);
+
+            RJAudio.AudioSource.SetIntVar("sfxvar", 11);
+            RJAudio.AudioSource.Play("sfx");
         }
         if (CurrentLevel < 3 && RJGame.CheckCurrentLevel() == 3)
         {

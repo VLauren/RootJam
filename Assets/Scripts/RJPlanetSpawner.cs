@@ -16,7 +16,7 @@ public class RJPlanetSpawner : MonoBehaviour
 
     private void Awake()
     {
-        RemainingTime = 20;
+        RemainingTime = 180;
     }
 
     void Start()
@@ -24,10 +24,13 @@ public class RJPlanetSpawner : MonoBehaviour
         SpawnPlanet(0);
         Camera.main.backgroundColor = CurrentPlanet.GetComponent<RJPlanet>().BackgroundColor;
 
-        // RJAudio.AudioSource.SetIntVar("musicvar", 0);
+        RJAudio.AudioSource.SetIntVar("musicvar", 1);
         // RJAudio.AudioSource.SetIntVar("littlevolume", 1);
-        // RJAudio.AudioSource.SetFloatVar("littlevolume", 1);
-        // RJAudio.AudioSource.Play("musica");
+        RJAudio.AudioSource.Play("musica");
+
+        // sonido inicio juego
+        RJAudio.AudioSource.SetIntVar("sfxvar", 11);
+        RJAudio.AudioSource.Play("sfx");
     }
 
     void SpawnPlanet(int index)
@@ -95,7 +98,7 @@ public class RJPlanetSpawner : MonoBehaviour
         camScr.enabled = false;
 
         // Audio planeta explota
-        RJAudio.AudioSource.SetIntVar("sfxvar", 15);
+        RJAudio.AudioSource.SetIntVar("sfxvar", 16);
         RJAudio.AudioSource.Play("sfx");
 
         while (camScr.transform.localEulerAngles.x > -30 + 360)
@@ -138,6 +141,10 @@ public class RJPlanetSpawner : MonoBehaviour
 
         yield return new WaitForSeconds(1);
         CurrentPlayer.SetActive(true);
+
+        // sonido inicio juego
+        RJAudio.AudioSource.SetIntVar("sfxvar", 11);
+        RJAudio.AudioSource.Play("sfx");
     }
 
 }
