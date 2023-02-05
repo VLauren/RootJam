@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RJPlanet : MonoBehaviour
 {
@@ -18,6 +19,11 @@ public class RJPlanet : MonoBehaviour
 
     Material StartMaterial;
 
+    //lo del tiempo
+    //public GameObject timeDisplay;
+    int seconds = 50;
+    bool deductingTime;
+
     void Awake()
     {
         Instance = this;
@@ -32,6 +38,17 @@ public class RJPlanet : MonoBehaviour
 
         RJAudio.AudioSource.SetIntVar("musicvar", 0);
         RJAudio.AudioSource.Play("musica");
+
+
+    }
+
+    private void Update()
+    {
+        if (!deductingTime)
+        {
+            deductingTime = true;
+            StartCoroutine(DeductSecond());
+        }
     }
 
     public int DebugGoblinsToSpawn;
@@ -58,5 +75,21 @@ public class RJPlanet : MonoBehaviour
     {
         float yRot = RJChar.Instance.transform.parent.eulerAngles.y;
         Instantiate(GoblinPrefab, Vector3.zero, Quaternion.Euler(Random.Range(-70, -55), Random.Range(yRot - 20, yRot + 20), 0));
+    }
+
+    IEnumerator DeductSecond()
+    {
+        yield return new WaitForSeconds(1);
+        seconds -= 1;
+        //timeDisplay.GetComponent<Text>().text = seconds.ToString();
+        deductingTime = false;
+
+        if (seconds <= 0)
+        {
+            SceneManager.LoadScene("EscenaFin", LoadSceneMode.Single);
+            print("0 segundos");
+        }
+
+        print("segundos" + seconds);
     }
 }

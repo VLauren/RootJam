@@ -38,10 +38,7 @@ public class RJChar : MonoBehaviour
 
     public int CurrentLevel { get; private set; }
 
-    //lo del tiempo
-    //public GameObject timeDisplay;
-    public int seconds = 10;
-    public bool deductingTime;
+
 
     private void Awake()
     {
@@ -177,11 +174,7 @@ public class RJChar : MonoBehaviour
         AttackLevel2();
 
 
-        if (!deductingTime)
-        {
-            deductingTime = true;
-            StartCoroutine(DeductSecond());
-        }
+
 
 
     }
@@ -358,19 +351,19 @@ public class RJChar : MonoBehaviour
         Attack2Area.gameObject.SetActive(true);
     }
 
-    IEnumerator DeductSecond()
-    {
-        yield return new WaitForSeconds(1);
-        seconds -= 10;
-        //timeDisplay.GetComponent<Text>().text = seconds.ToString();
-        deductingTime = false;
+    // IEnumerator DeductSecond()
+    // {
+    //     yield return new WaitForSeconds(1);
+    //     seconds -= 1;
+    //     //timeDisplay.GetComponent<Text>().text = seconds.ToString();
+    //     deductingTime = false;
 
-        if (seconds <= 0)
-        {
-            SceneManager.LoadScene("EscenaFin", LoadSceneMode.Single);
-            print("0 segundos");
-        }
+    //     if (seconds <= 0)
+    //     {
+    //         SceneManager.LoadScene("EscenaFin", LoadSceneMode.Single);
+    //         print("0 segundos");
+    //     }
 
-        print("segundos" + seconds);
-    }
+    //     print("segundos" + seconds);
+    // }
 }
