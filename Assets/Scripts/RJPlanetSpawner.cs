@@ -20,7 +20,7 @@ public class RJPlanetSpawner : MonoBehaviour
 
     void Start()
     {
-        SpawnPlanet();
+        SpawnPlanet(0);
         Camera.main.backgroundColor = CurrentPlanet.GetComponent<RJPlanet>().BackgroundColor;
 
         // RJAudio.AudioSource.SetIntVar("musicvar", 0);
@@ -29,7 +29,7 @@ public class RJPlanetSpawner : MonoBehaviour
         // RJAudio.AudioSource.Play("musica");
     }
 
-    void SpawnPlanet()
+    void SpawnPlanet(int index)
     {
         if (CurrentPlayer != null)
             Destroy(CurrentPlayer);
@@ -49,7 +49,7 @@ public class RJPlanetSpawner : MonoBehaviour
             Destroy(proj.gameObject);
 
         RJGame.ResetValues();
-        CurrentPlanet = Instantiate(Planets[0], Vector3.zero, Quaternion.identity);
+        CurrentPlanet = Instantiate(Planets[index], Vector3.zero, Quaternion.identity);
         CurrentPlayer = Instantiate(PlayerPrefab, Vector3.zero, Quaternion.Euler(-59, 0, 0));
     }
 
@@ -85,7 +85,7 @@ public class RJPlanetSpawner : MonoBehaviour
 
         yield return null;
 
-        SpawnPlanet();
+        SpawnPlanet(Random.Range(1,4));
         CurrentPlayer.transform.eulerAngles = new Vector3(-59, camScr.transform.parent.eulerAngles.y - 180, 0);
 
         yield return null;

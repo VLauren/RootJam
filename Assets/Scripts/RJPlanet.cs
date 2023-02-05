@@ -11,6 +11,8 @@ public class RJPlanet : MonoBehaviour
     [Header("Prefabs")]
     public GameObject GoblinPrefab;
     public GameObject Resource1Prefab;
+    public GameObject Resource2Prefab;
+    public GameObject Resource3Prefab;
 
     [Space()]
     public Color BackgroundColor;
@@ -56,8 +58,13 @@ public class RJPlanet : MonoBehaviour
         for (int i = 0; i < DebugGoblinsToSpawn; i++)
             Instantiate(GoblinPrefab, Vector3.zero, Quaternion.Euler(Random.Range(-70, -55), Random.Range(-180, 180), 0));
 
-        for (int i = 0; i < 15; i++)
+        // Spawn recursos
+        for (int i = 0; i < 10; i++)
             Instantiate(Resource1Prefab, Vector3.zero, Quaternion.Euler(Random.Range(-70, -55), Random.Range(-180, 180), 0));
+        for (int i = 0; i < 10; i++)
+            Instantiate(Resource2Prefab, Vector3.zero, Quaternion.Euler(Random.Range(-70, -55), Random.Range(-180, 180), 0));
+        for (int i = 0; i < 10; i++)
+            Instantiate(Resource3Prefab, Vector3.zero, Quaternion.Euler(Random.Range(-70, -55), Random.Range(-180, 180), 0));
     }
 
     public static void ChangeMaterial(bool transparent)
