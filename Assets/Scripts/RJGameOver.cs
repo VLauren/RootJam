@@ -1,3 +1,4 @@
+using KrillAudio.Krilloud;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,10 +10,14 @@ public class RJGameOver : MonoBehaviour
     public Text finalScore;
 
     bool gameOver = false;
-    // Start is called before the first frame update
+
+    KLAudioSource AudioSource;
+
     void Start()
     {
-
+        AudioSource = GetComponent<KLAudioSource>();
+        AudioSource.SetIntVar("musicvar", 2);
+        AudioSource.Play("musica");
     }
 
     // Update is called once per frame

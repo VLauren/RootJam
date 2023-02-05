@@ -663,6 +663,7 @@ GameObject:
   - component: {fileID: 1951976249}
   - component: {fileID: 1951976248}
   - component: {fileID: 1951976252}
+  - component: {fileID: 1951976253}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -767,7 +768,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2aa7e44bee5a1b4c816b1694cad3719, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  finalScore: {fileID: 0}
+  finalScore: {fileID: 1259179399}
+--- !u!114 &1951976253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951976247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca36c690dacad5b449503bd14a590635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sourceShape: 0
+  sphereShapeRadius: 1
+  lineShapeStart: {x: -0, y: -0, z: -1}
+  lineShapeEnd: {x: 0, y: 0, z: 1}
+  areaShapeSize: {x: 1, y: 1, z: 1}
+  playOnAwake: 0
+  m_tags:
+  - musica
+  - sfx
 --- !u!1 &2080675756
 GameObject:
   m_ObjectHideFlags: 0
