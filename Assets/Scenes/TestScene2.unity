@@ -146,11 +146,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 127727918}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7063a94280db5d4292a14fef57093a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreSlider: {fileID: 935617432}
   gameScore: {fileID: 1466171407}
   gameTime: {fileID: 127727920}
 --- !u!1 &368338146
@@ -296,6 +297,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &935617430 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4640428243365882779, guid: 7b5fca4a80725c54d884eae73daa8a8b, type: 3}
+  m_PrefabInstance: {fileID: 1714768810}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &935617432 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6408057958165551607, guid: 7b5fca4a80725c54d884eae73daa8a8b, type: 3}
+  m_PrefabInstance: {fileID: 1714768810}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935617430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &935617433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935617430}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7063a94280db5d4292a14fef57093a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreSlider: {fileID: 935617432}
+  gameScore: {fileID: 127727920}
+  gameTime: {fileID: 1466171407}
 --- !u!1 &1466171405 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7222288455261778116, guid: efbeb4df5f4b71a4fa2a0fbac820f236, type: 3}
@@ -319,11 +351,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1466171405}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7063a94280db5d4292a14fef57093a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreSlider: {fileID: 935617432}
   gameScore: {fileID: 1466171407}
   gameTime: {fileID: 127727920}
 --- !u!1 &1467745977
@@ -362,7 +395,6 @@ MonoBehaviour:
   - {fileID: 8822586413125897361, guid: 225004fbec6f1be47b4c9a50dc6ab8f5, type: 3}
   - {fileID: 3546009779636775476, guid: 6000413488ed7804a9a3f41e98feb16a, type: 3}
   PlayerPrefab: {fileID: 7290809131021941533, guid: 2abd26c75bdc0ac4aa5f89b6ca94e222, type: 3}
-  gameScore: 0
 --- !u!4 &1467745979
 Transform:
   m_ObjectHideFlags: 0
@@ -588,6 +620,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6690692257272534334, guid: 7b5fca4a80725c54d884eae73daa8a8b, type: 3}
+      propertyPath: gameTime
+      value: 
+      objectReference: {fileID: 127727920}
+    - target: {fileID: 6690692257272534334, guid: 7b5fca4a80725c54d884eae73daa8a8b, type: 3}
+      propertyPath: gameScore
+      value: 
+      objectReference: {fileID: 1466171407}
+    - target: {fileID: 6690692257272534334, guid: 7b5fca4a80725c54d884eae73daa8a8b, type: 3}
+      propertyPath: scoreSlider
+      value: 
+      objectReference: {fileID: 935617432}
     - target: {fileID: 7094719322377555420, guid: 7b5fca4a80725c54d884eae73daa8a8b, type: 3}
       propertyPath: m_IsActive
       value: 1
