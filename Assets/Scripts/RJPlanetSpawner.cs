@@ -37,6 +37,8 @@ public class RJPlanetSpawner : MonoBehaviour
         RJGame.ResetValues();
         CurrentPlanet = Instantiate(Planets[0], Vector3.zero, Quaternion.identity);
         CurrentPlayer = Instantiate(PlayerPrefab, Vector3.zero, Quaternion.Euler(-59, 0, 0));
+
+        Camera.main.backgroundColor = CurrentPlanet.GetComponent<RJPlanet>().BackgroundColor;
     }
 
     void Update()
