@@ -59,7 +59,7 @@ namespace KrillAudio.Krilloud
 
 			/// <summary>
 			/// Variable: sfxvar
-			/// Range: [0 - 16]
+			/// Range: [0 - 17]
 			/// Type: Local
 			/// </summary>
 			public const string sfxvar = "sfxvar";

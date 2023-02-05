@@ -354,7 +354,7 @@ public class RJChar : MonoBehaviour
         // var fx = WJVisualFX.Effect(2, FXPos, Quaternion.Euler(0, -90, 0) * transform.rotation);
         // fx.transform.parent = transform;
 
-        // TODO camera shake
+        RJCam.CameraShake(0.05f, 0.15f);
 
         yield return new WaitForSeconds(0.1f);
 

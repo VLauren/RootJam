@@ -33,6 +33,8 @@ public class RJPlanetSpawner : MonoBehaviour
         // sonido inicio juego
         RJAudio.AudioSource.SetIntVar("sfxvar", 11);
         RJAudio.AudioSource.Play("sfx");
+
+        // RJAudio.AudioSource.SetIntVar("crushvar", 1);
     }
 
     void SpawnPlanet(int index)
@@ -103,6 +105,7 @@ public class RJPlanetSpawner : MonoBehaviour
         RJAudio.AudioSource.SetIntVar("sfxvar", 16);
         RJAudio.AudioSource.Play("sfx");
 
+
         while (camScr.transform.localEulerAngles.x > -30 + 360)
         {
             camScr.transform.localEulerAngles = new Vector3(camScr.transform.localEulerAngles.x - Time.deltaTime * 5, camScr.transform.localEulerAngles.y, 0);
@@ -111,6 +114,9 @@ public class RJPlanetSpawner : MonoBehaviour
         }
 
         yield return null;
+
+        RJAudio.AudioSource.SetIntVar("sfxvar", 17);
+        RJAudio.AudioSource.Play("sfx");
 
         SpawnPlanet(Random.Range(1, 4));
         CurrentPlayer.transform.eulerAngles = new Vector3(-59, camScr.transform.parent.eulerAngles.y - 180, 0);

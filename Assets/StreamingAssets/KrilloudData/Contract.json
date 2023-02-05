@@ -639,7 +639,7 @@
                 "channel_id": 0,
                 "levelName": "Root",
                 "associated_ID": -1,
-                "gids": 27,
+                "gids": 30,
                 "graphNodes_info": [
                     {
                         "type": 18,
@@ -879,8 +879,8 @@
                                 "links": [
                                     {
                                         "my_socket_id": 10,
-                                        "connected_node_id": 18,
-                                        "connected_node_socket_id": 0
+                                        "connected_node_id": 29,
+                                        "connected_node_socket_id": 1
                                     }
                                 ]
                             },
@@ -984,7 +984,13 @@
                                 "SocketID": 19,
                                 "connection_type": 0,
                                 "data_type": 0,
-                                "links": []
+                                "links": [
+                                    {
+                                        "my_socket_id": 19,
+                                        "connected_node_id": 30,
+                                        "connected_node_socket_id": 0
+                                    }
+                                ]
                             }
                         ],
                         "values": []
@@ -1541,7 +1547,7 @@
                         "type": 1,
                         "ID": 18,
                         "Name": "Audio Container",
-                        "Pos_x": -441.5999755859375,
+                        "Pos_x": -440.5035705566406,
                         "Pos_y": 944.1000366210938,
                         "Size_x": 200.0,
                         "Size_y": 100.0,
@@ -1556,16 +1562,16 @@
                                 "links": [
                                     {
                                         "my_socket_id": 0,
-                                        "connected_node_id": 3,
-                                        "connected_node_socket_id": 10
+                                        "connected_node_id": 29,
+                                        "connected_node_socket_id": 0
                                     }
                                 ]
                             }
                         ],
                         "values": [
-                            1.0,
                             0.0,
-                            6459.0,
+                            0.0,
+                            15487.0,
                             1.0
                         ]
                     },
@@ -1857,6 +1863,124 @@
                             0.0,
                             1.0
                         ]
+                    },
+                    {
+                        "type": 16,
+                        "ID": 28,
+                        "Name": "pitch",
+                        "Pos_x": -114.2938232421875,
+                        "Pos_y": 1019.7757568359375,
+                        "Size_x": 175.0,
+                        "Size_y": 110.0,
+                        "can_be_deleted": true,
+                        "inputsCount": 0,
+                        "outputsCount": 1,
+                        "sockets": [
+                            {
+                                "SocketID": 0,
+                                "connection_type": 1,
+                                "data_type": 1,
+                                "links": [
+                                    {
+                                        "my_socket_id": 0,
+                                        "connected_node_id": 29,
+                                        "connected_node_socket_id": 2
+                                    }
+                                ]
+                            }
+                        ],
+                        "values": [
+                            0.0,
+                            2.0,
+                            1.0,
+                            0.0,
+                            1.0
+                        ]
+                    },
+                    {
+                        "type": 13,
+                        "ID": 29,
+                        "Name": "Pitch",
+                        "Pos_x": -131.83612060546876,
+                        "Pos_y": 1000.0405883789063,
+                        "Size_x": 250.0,
+                        "Size_y": 100.0,
+                        "can_be_deleted": true,
+                        "inputsCount": 2,
+                        "outputsCount": 1,
+                        "sockets": [
+                            {
+                                "SocketID": 0,
+                                "connection_type": 0,
+                                "data_type": 0,
+                                "links": [
+                                    {
+                                        "my_socket_id": 0,
+                                        "connected_node_id": 18,
+                                        "connected_node_socket_id": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "SocketID": 1,
+                                "connection_type": 1,
+                                "data_type": 0,
+                                "links": [
+                                    {
+                                        "my_socket_id": 1,
+                                        "connected_node_id": 3,
+                                        "connected_node_socket_id": 10
+                                    }
+                                ]
+                            },
+                            {
+                                "SocketID": 2,
+                                "connection_type": 0,
+                                "data_type": 1,
+                                "links": [
+                                    {
+                                        "my_socket_id": 2,
+                                        "connected_node_id": 28,
+                                        "connected_node_socket_id": 0
+                                    }
+                                ]
+                            }
+                        ],
+                        "values": [
+                            0.0
+                        ]
+                    },
+                    {
+                        "type": 1,
+                        "ID": 30,
+                        "Name": "Audio Container",
+                        "Pos_x": -277.6571350097656,
+                        "Pos_y": 2393.5625,
+                        "Size_x": 200.0,
+                        "Size_y": 100.0,
+                        "can_be_deleted": true,
+                        "inputsCount": 0,
+                        "outputsCount": 1,
+                        "sockets": [
+                            {
+                                "SocketID": 0,
+                                "connection_type": 1,
+                                "data_type": 0,
+                                "links": [
+                                    {
+                                        "my_socket_id": 0,
+                                        "connected_node_id": 3,
+                                        "connected_node_socket_id": 19
+                                    }
+                                ]
+                            }
+                        ],
+                        "values": [
+                            0.0,
+                            0.0,
+                            10531.0,
+                            1.0
+                        ]
                     }
                 ],
                 "graphLevels_info": []
@@ -2061,6 +2185,18 @@
                 "bankFile": "KSB34258531221261695490DATA.krll",
                 "offsetBytes": 7543111,
                 "size": 21505
+            },
+            {
+                "id": 15487,
+                "bankFile": "KSB34258531221261695490DATA.krll",
+                "offsetBytes": 7564616,
+                "size": 6142
+            },
+            {
+                "id": 10531,
+                "bankFile": "KSB34258531221261695490DATA.krll",
+                "offsetBytes": 7570758,
+                "size": 179810
             }
         ],
         "variables": [
@@ -2077,12 +2213,12 @@
             },
             {
                 "variable_name": "sfxvar",
-                "current_value": 10.0,
+                "current_value": 17.0,
                 "type": 0,
                 "source": 2,
                 "content": 0,
                 "range_min": 0.0,
-                "range_max": 16.0,
+                "range_max": 17.0,
                 "set_only_on_play": false
             },
             {
@@ -2166,6 +2302,6 @@
                 "buffer_size": 0
             }
         ],
-        "creation_time": 1675589003
+        "creation_time": 1675590695
     }
 }

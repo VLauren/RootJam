@@ -12,7 +12,7 @@ public class PlayerHitBox : MonoBehaviour
         {
             other.GetComponent<RJGoblin>().ApplyDamage(Damage);
 
-            // TODO VFX & audio
+            RJCam.CameraShake(0.15f, 0.15f);
         }
     }
 
